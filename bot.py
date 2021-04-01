@@ -13,9 +13,10 @@ def send_welcome(message):
     bot.reply_to(message, "Bienvenido a este bot de prueba")
 
 
-@bot.message_handler(commands=['hola'])
+@bot.message_handler(commands=['siu'])
 def send_welcome(message):
-    bot.reply_to(message, "Hola, soy un chatbot")
+    print(message)
+    bot.reply_to(message, "Comando SIU")
 
 
 @server.route('/' + API_TOKEN, methods=['POST'])
