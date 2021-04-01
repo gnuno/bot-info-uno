@@ -13,7 +13,7 @@ telebot.logger.setLevel(logging.DEBUG)
 
 API_TOKEN = os.environ.get('TOKEN')
 
-bot = telebot.TeleBot(API_TOKEN)
+bot = telebot.TeleBot(API_TOKEN, parse_mode=HTML)
 server = Flask(__name__)
 
 
@@ -27,6 +27,13 @@ def get_siu_info():
     return siu_data
 
 
+def siu_message():
+    siu_data = get_siu_info()
+    if siu_data['status'] == 200
+    return f"El siu guaraní ha respondido <b>exitosamente</b> con una latencia de <b>{siu_data['latency']}ms</b>"
+    else return f"Falló la solicitud al siu guaraní con una latencia de <b>{siu_data['latency']}ms</b>"
+
+
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
     bot.reply_to(message, "Bienvenido a este bot de prueba")
@@ -34,15 +41,13 @@ def send_welcome(message):
 
 @bot.message_handler(commands=['siu'])
 def request_siu_information(message):
-    print(message)
     user_id = message.from_user.id
+    chat_id = message.chat.id
     logger.info(f"El usuario {user_id} ha solicitado información del SIU.")
     bot.send_message(
-        message.chat.id, f"Solicitando información de https://autogestion.uno.edu.ar/uno/")
-    # bot.reply_to(message, f"Solicitando información de https://autogestion.uno.edu.ar/uno/")
-    siu_data = get_siu_info()
-    bot.reply_to(
-        message, f"Siu Guaraní ha respondido con código {siu_data['status']} en {siu_data['latency']}ms")
+        chat_id, f"<i>Solicitando información a https://autogestion.uno.edu.ar/uno/ ...</i>")
+    bot.send_message(
+        chat_id, siu_message())
 
 
 @server.route('/' + API_TOKEN, methods=['POST'])
