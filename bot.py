@@ -1,6 +1,10 @@
 import telebot
 from flask import Flask, request
 import os
+import logging
+
+logger = telebot.logger
+telebot.logger.setLevel(logging.INFO)
 
 API_TOKEN = os.environ.get('TOKEN')
 
@@ -15,7 +19,8 @@ def send_welcome(message):
 
 @bot.message_handler(commands=['siu'])
 def send_welcome(message):
-    print(message)
+    user_id = message['from_user']['id']
+    logger.info(f"El usuario {user_id} ha solicitado información sobre el SIU")
     bot.reply_to(message, "Comando SIU")
 
 
