@@ -39,8 +39,8 @@ def request_siu_information(message):
     bot.reply_to(
         message, f"Solicitando información de https://autogestion.uno.edu.ar/uno/")
     siu_data = get_siu_info()
-    bot.reply_to(
-        message, f"Siu Guaraní ha respondido con código {siu_data.status} en {siu_data.latency}ms")
+    print(siu_data)
+    # bot.reply_to(message, f"Siu Guaraní ha respondido con código {siu_data.status} en {siu_data.latency}ms")
 
 
 @server.route('/' + API_TOKEN, methods=['POST'])
