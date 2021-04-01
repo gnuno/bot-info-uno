@@ -37,9 +37,9 @@ def request_siu_information(message):
     print(message)
     user_id = message.from_user.id
     logger.info(f"El usuario {user_id} ha solicitado información del SIU.")
-    # bot.send_message()
-    bot.reply_to(
-        message, f"Solicitando información de https://autogestion.uno.edu.ar/uno/")
+    bot.send_message(
+        message.chat.id, f"Solicitando información de https://autogestion.uno.edu.ar/uno/")
+    # bot.reply_to(message, f"Solicitando información de https://autogestion.uno.edu.ar/uno/")
     siu_data = get_siu_info()
     bot.reply_to(
         message, f"Siu Guaraní ha respondido con código {siu_data['status']} en {siu_data['latency']}ms")
