@@ -13,7 +13,7 @@ telebot.logger.setLevel(logging.DEBUG)
 
 API_TOKEN = os.environ.get('TOKEN')
 
-bot = telebot.TeleBot(API_TOKEN, parse_mode=HTML)
+bot = telebot.TeleBot(API_TOKEN, parse_mode='HTML')
 server = Flask(__name__)
 
 
