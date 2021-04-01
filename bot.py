@@ -4,12 +4,8 @@ import os
 import logging
 
 # Configurar logging
-logging.basicConfig(level=logging.INFO,
-                    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
-
-logger = logging.getLogger()
-# logger = telebot.logger
-# telebot.logger.setLevel(logging.INFO)
+logger = telebot.logger
+telebot.logger.setLevel(logging.DEBUG)
 
 API_TOKEN = os.environ.get('TOKEN')
 
@@ -24,9 +20,9 @@ def send_welcome(message):
 
 @bot.message_handler(commands=['siu'])
 def send_welcome(message):
-    user_id = message['from_user']['id']
     print(message['from_user'])
-    logger.info(f"El usuario {user_id} ha solicitado información sobre el SIU")
+    print(message.from_user)
+    logger.debug("Loggeando un mensaje")
     bot.reply_to(message, "Comando SIU")
 
 
