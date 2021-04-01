@@ -20,7 +20,7 @@ def send_welcome(message):
 
 @bot.message_handler(commands=['siu'])
 def send_welcome(message):
-    print(message['from_user'])
+    # print(message['from_user'])
     print(message.from_user)
     logger.debug("Loggeando un mensaje")
     bot.reply_to(message, "Comando SIU")
