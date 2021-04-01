@@ -29,9 +29,10 @@ def get_siu_info():
 
 def siu_message():
     siu_data = get_siu_info()
-    if siu_data['status'] == 200
-    return f"El siu guaraní ha respondido <b>exitosamente</b> con una latencia de <b>{siu_data['latency']}ms</b>"
-    else return f"Falló la solicitud al siu guaraní con una latencia de <b>{siu_data['latency']}ms</b>"
+    if siu_data['status'] == 200:
+        return f"El siu guaraní ha respondido <b>exitosamente</b> con una latencia de <b>{siu_data['latency']}ms</b>"
+    else:
+        return f"Falló la solicitud al siu guaraní con una latencia de <b>{siu_data['latency']}ms</b>"
 
 
 @bot.message_handler(commands=['start'])
