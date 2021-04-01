@@ -3,8 +3,13 @@ from flask import Flask, request
 import os
 import logging
 
-logger = telebot.logger
-telebot.logger.setLevel(logging.INFO)
+# Configurar logging
+logging.basicConfig(level=logging.INFO,
+                    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+
+logger = logging.getLogger()
+# logger = telebot.logger
+# telebot.logger.setLevel(logging.INFO)
 
 API_TOKEN = os.environ.get('TOKEN')
 
