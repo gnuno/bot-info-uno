@@ -20,9 +20,8 @@ def send_welcome(message):
 
 @bot.message_handler(commands=['siu'])
 def send_welcome(message):
-    # print(message['from_user'])
-    print(message.from_user)
-    logger.debug("Loggeando un mensaje")
+    user_id = message.from_user.id
+    logger.debug(f"El usuario {user_id} ha solicitado información del SIU")
     bot.reply_to(message, "Comando SIU")
 
 
