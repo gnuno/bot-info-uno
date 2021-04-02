@@ -2,7 +2,7 @@ import json
 LINKS_ROOT_URL = 'https://gea-uno.github.io/'
 
 with open('./assets/calendario_academico.json', encoding='utf-8') as f:
-    calendario = json.load(f).de
+    calendario = json.load(f)
 
 
 def siu_success_message(latency):
