@@ -49,6 +49,12 @@ def help_message(message):
     bot.send_message(chat_id, responses.help_message())
 
 
+@bot.message_handler(commands=['emperador_gato'])
+def emperador_gato(message):
+    chat_id = message.chat.id
+    bot.send_message(chat_id, "Metele mano al backend hdp")
+
+
 @bot.message_handler(commands=['siu'])
 def request_siu_information(message):
     user_id = message.from_user.id
