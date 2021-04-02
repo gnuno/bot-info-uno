@@ -28,12 +28,21 @@ def get_siu_info():
     return siu_data
 
 
+def get_links_from_api():
+    res = requests.get('https://igna98.alwaysdata.net/page')
+    print(res)
+
+
 def siu_message():
     siu_data = get_siu_info()
     if siu_data['status'] == 200:
         return responses.siu_success_message(siu_data['latency'])
     else:
         return responses.siu_failure_message(siu_data['latency'])
+
+
+def get_links_message():
+    get_links_from_api()
 
 
 @bot.message_handler(commands=['start'])
@@ -49,10 +58,10 @@ def help_message(message):
     bot.send_message(chat_id, responses.help_message())
 
 
-@bot.message_handler(commands=['emperador_gato'])
-def emperador_gato(message):
+@bot.message_handler(commands=['links'])
+def get_useful_links(message):
     chat_id = message.chat.id
-    bot.send_message(chat_id, "Metele mano al backend hdp")
+    bot.send_message(chat_id, get_links_message())
 
 
 @bot.message_handler(commands=['siu'])
