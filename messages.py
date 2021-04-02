@@ -1,9 +1,6 @@
 import json
 LINKS_ROOT_URL = 'https://gea-uno.github.io/'
 
-with open('./assets/calendario_academico.json', encoding='utf-8') as f:
-    calendario = json.load(f)
-
 
 def siu_success_message(latency):
     return f"El siu guaraní ha respondido <b>exitosamente</b> con una latencia de <b>{latency}ms</b>"
@@ -54,6 +51,8 @@ def get_dates(dicc):
 
 
 def calendario_academico_message():
+    with open('./assets/calendario_academico.json', encoding='utf-8') as f:
+        calendario = json.load(f)
     message = f"El calendario acádemico es el siguiente:\n\n"
     matches = ['Inscripción a Carreras de Grado', 'Exámenes Turno']
     for item in calendario:
@@ -69,3 +68,14 @@ def calendario_academico_message():
                 message += f"<b>Ingresantes</b>\n"
             message += f"{get_dates(para['ingresantes'])}\n"
     return message
+
+
+def default_links():
+    return
+
+
+def get_mails_by_term(*term):
+    if len(term) > 0:
+        return term
+    else:
+        return 'default'

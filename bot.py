@@ -90,11 +90,14 @@ def get_academic_calendar(message):
 
 @bot.message_handler(commands=['mails'])
 def get_emails(message):
-    print(message.text)
+    arguments = message.text.split()
     user_id = message.from_user.id
     chat_id = message.chat.id
     logger.info(f"El usuario {user_id} ha solicitado MAILS.")
-    bot.send_message(chat_id, "Mails")
+    if len(arguments) > 1:
+        bot.send_message(chat_id, responses.get_mails_by_term(arguments[1]))
+    else:
+        bot.send_message(chat_id, responses.get_mails_by_term())
 
 
 @server.route('/' + API_TOKEN, methods=['POST'])
