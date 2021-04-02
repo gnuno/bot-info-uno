@@ -4,6 +4,7 @@ import os
 import logging
 import requests
 import time
+import messages as responses
 
 # Configurar logging
 logging.basicConfig(
@@ -30,14 +31,22 @@ def get_siu_info():
 def siu_message():
     siu_data = get_siu_info()
     if siu_data['status'] == 200:
-        return f"El siu guaraní ha respondido <b>exitosamente</b> con una latencia de <b>{siu_data['latency']}ms</b>"
+        return responses.siu_success_message(siu_data['latency'])
     else:
-        return f"Falló la solicitud al siu guaraní con una latencia de <b>{siu_data['latency']}ms</b>"
+        return responses.siu_failure_message(siu_data['latency'])
 
 
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
     bot.reply_to(message, "Bienvenido a este bot de prueba")
+
+
+@bot.message_handler(commands=['help'])
+def help_message(message):
+    user_id = message.from_user.id
+    logger.info(f"El usuario {user_id} ha solicitado AYUDA.")
+    chat_id = message.chat.id
+    bot.send_message(chat_id, responses.help_message())
 
 
 @bot.message_handler(commands=['siu'])
