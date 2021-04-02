@@ -49,7 +49,8 @@ def get_links_message():
 
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
-    bot.reply_to(message, "Bienvenido a este bot de prueba")
+    bot.reply_to(
+        message, "Bienvenidx a este botardo con información util sobre la Universidad Nacional del Oeste.")
 
 
 @bot.message_handler(commands=['help'])
@@ -62,6 +63,8 @@ def help_message(message):
 
 @bot.message_handler(commands=['links'])
 def get_useful_links(message):
+    user_id = message.from_user.id
+    logger.info(f"El usuario {user_id} ha solicitado LINKS.")
     chat_id = message.chat.id
     bot.send_message(chat_id, get_links_message())
 
@@ -83,6 +86,15 @@ def get_academic_calendar(message):
     chat_id = message.chat.id
     logger.info(f"El usuario {user_id} ha solicitado el Calendario Academico.")
     bot.send_message(chat_id, responses.calendario_academico_message())
+
+
+@bot.message_handler(commands=['mails'])
+def get_emails(message):
+    print(message)
+    user_id = message.from_user.id
+    chat_id = message.chat.id
+    logger.info(f"El usuario {user_id} ha solicitado MAILS.")
+    bot.send_message(chat_id, "Mails")
 
 
 @server.route('/' + API_TOKEN, methods=['POST'])
