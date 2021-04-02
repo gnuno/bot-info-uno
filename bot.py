@@ -30,9 +30,9 @@ def get_siu_info():
 
 def get_links_from_api():
     res = requests.get('https://igna98.alwaysdata.net/page')
-    data = res.json().data
-    data = map(lambda link: link.name, data)
-    return responses.links_message(data)
+    data = res.json()['data']
+    mapped_list = list(map(lambda link: link['name'], data))
+    return responses.links_message(mapped_list)
 
 
 def siu_message():
