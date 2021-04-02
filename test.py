@@ -1,7 +1,7 @@
 import requests
 import json
 
-with open('./assets/calendario_academico.json') as f:
+with open('./assets/calendario_academico.json', encoding='utf-8') as f:
     calendario = json.load(f)
 
 
@@ -19,15 +19,22 @@ def get_dates(dicc):
 
 
 message = f"El calendario acádemico es el siguiente:\n\n"
+matches = ['Inscripción a Carreras de Grado', 'Exámenes Turno']
 for item in calendario:
-    message += f"{item['titulo']}\n"
+    message += f"<b><u>{item['titulo']}</u></b>\n"
+    print(item['titulo'])
     para = item['actividades']['para']
+    isMatch = [True for x in matches if x in item['titulo']]
     if 'regulares' in para:
-        message += f"Regulares\n"
+        if True not in isMatch:
+            print('IF REGULARES')
+            message += f"<b>Regulares</b>\n"
         message += f"{get_dates(para['regulares'])}\n"
     if 'ingresantes' in para:
-        message += f"Ingresantes\n"
+        if True not in isMatch:
+            print('IF INGRESANTES')
+            message += f"<b>Ingresantes</b>\n"
         message += f"{get_dates(para['ingresantes'])}\n"
-print(message)
+# print(message)
 
 # print(item['actividades']['para']['regulares'])
