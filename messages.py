@@ -59,9 +59,11 @@ def calendario_academico_message():
         message += f"<b><u>{item['titulo']}</u></b>\n"
         para = item['actividades']['para']
         if 'regulares' in para:
-            message += f"<b>Regulares</b>\n"
+            if 'Inscripción a Carreras de Grado' not in item['titulo']:
+                message += f"<b>Regulares</b>\n"
             message += f"{get_dates(para['regulares'])}\n"
         if 'ingresantes' in para:
-            message += f"<b>Ingresantes</b>\n"
+            if 'Inscripción a Carreras de Grado' not in item['titulo']:
+                message += f"<b>Ingresantes</b>\n"
             message += f"{get_dates(para['ingresantes'])}\n"
     return message
