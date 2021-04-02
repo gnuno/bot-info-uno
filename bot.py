@@ -90,7 +90,7 @@ def get_academic_calendar(message):
 
 @bot.message_handler(commands=['mails'])
 def get_emails(message):
-    print(message)
+    print(message.text)
     user_id = message.from_user.id
     chat_id = message.chat.id
     logger.info(f"El usuario {user_id} ha solicitado MAILS.")
