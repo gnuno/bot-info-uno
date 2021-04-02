@@ -17,19 +17,20 @@ def links_message(data):
     message = f"Links utiles de la UNO en general:\n\n"
     for name in data:
         if name == 'info':
-            message += f"<b>Informática</b>: {LINKS_ROOT_URL}{name}\n"
+            info = f"<b>Informática</b>: {LINKS_ROOT_URL}{name}\n"
         elif name == 'enf':
-            message += f"<b>Enfermería</b>: {LINKS_ROOT_URL}{name}\n"
+            enf = f"<b>Enfermería</b>: {LINKS_ROOT_URL}{name}\n"
         elif name == 'admin':
-            message += f"<b>Administración</b>: {LINKS_ROOT_URL}{name}\n"
+            admin = f"<b>Administración</b>: {LINKS_ROOT_URL}{name}\n"
         elif name == 'hum':
-            message += f"<b>Humanidades</b>: {LINKS_ROOT_URL}{name}\n"
+            hum = f"<b>Humanidades</b>: {LINKS_ROOT_URL}{name}\n"
         elif name == 'ingq':
-            message += f"<b>Ing. Química</b>: {LINKS_ROOT_URL}{name}\n"
+            ingq = f"<b>Ing. Química</b>: {LINKS_ROOT_URL}{name}\n"
         elif name == 'links':
-            message += f"<b>Plataformas UNO</b>: {LINKS_ROOT_URL}uno\n"
+            links = f"<b>Plataformas UNO</b>: {LINKS_ROOT_URL}uno\n"
         elif name == 'info-comun':
-            message += f"<b>Comunidades IT</b>: {LINKS_ROOT_URL}info/{name}\n"
+            comunidades = f"<b>Comunidades IT</b>: {LINKS_ROOT_URL}info/{name}\n"
 
+    message = message + info + comunidades + enf + admin + hum + ingq + links
     message += f"\nY acá te dejamos el dashboard principal por si querés chusmear desde cero!\n{LINKS_ROOT_URL}"
     return message
