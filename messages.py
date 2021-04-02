@@ -1,4 +1,8 @@
+import json
 LINKS_ROOT_URL = 'https://gea-uno.github.io/'
+
+with open('./assets/calendario_academico.json') as f:
+    calendario = json.load(f)
 
 
 def siu_success_message(latency):
@@ -33,4 +37,31 @@ def links_message(data):
 
     message = message + info + comunidades + enf + admin + hum + ingq + links
     message += f"\nY acá te dejamos el dashboard principal por si querés chusmear desde cero!\n{LINKS_ROOT_URL}"
+    return message
+
+
+def get_dates(dicc):
+    message = ''
+    if 'inscripcion' in dicc:
+        message += f"Inscripcion: {dicc['inscripcion']}\n"
+    if 'inicio' in dicc:
+        message += f"Inicio: {dicc['inicio']}\n"
+    if 'finalizacion' in dicc:
+        message += f"Finalizacion: {dicc['finalizacion']}\n"
+    if 'examenes' in dicc:
+        message += f"Examanes: {dicc['examenes']}\n"
+    return message
+
+
+def calendario_academico_message():
+    message = f"El calendario acádemico es el siguiente:\n\n"
+    for item in calendario:
+        message += f"<b><u>{item['titulo']}</u></b>\n"
+        para = item['actividades']['para']
+        if 'regulares' in para:
+            message += f"<b>Regulares</b>\n"
+            message += f"{get_dates(para['regulares'])}\n"
+        if 'ingresantes' in para:
+            message += f"<b>Ingresantes</b>\n"
+            message += f"{get_dates(para['ingresantes'])}\n"
     return message

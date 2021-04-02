@@ -77,6 +77,14 @@ def request_siu_information(message):
         chat_id, siu_message())
 
 
+@bot.message_handler(commands=['calendar'])
+def get_academic_calendar(message):
+    user_id = message.from_user.id
+    chat_id = message.chat.id
+    logger.info(f"El usuario {user_id} ha solicitado el Calendario Academico.")
+    bot.send_message(chat_id, responses.calendario_academico_message())
+
+
 @server.route('/' + API_TOKEN, methods=['POST'])
 def getMessage():
     bot.process_new_updates(

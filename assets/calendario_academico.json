@@ -1,0 +1,89 @@
+[
+  {
+    "titulo": "Exámenes Turno Febrero 2021",
+    "actividades": {
+      "para": {
+        "regulares": {
+          "inscripcion": "01 y 02 de Febrero de 2021",
+          "examenes": "05 al 20 de Febrero de 2021"
+        }
+      }
+    }
+  },
+  {
+    "titulo": "Cursada 1° Cuatrimestre 2021",
+    "actividades": {
+      "para": {
+        "regulares": {
+          "inscripcion": "22 y 23 de Febrero de 2021",
+          "inicio": "01 de Marzo de 2021",
+          "finalizacion": "03 de Julio de 2021"
+        },
+        "ingresantes": {
+          "inscripcion": "22 y 23 de Febrero de 2021",
+          "inicio": "15 de Marzo de 2021",
+          "finalizacion": "03 de Julio de 2021"
+        }
+      }
+    }
+  },
+  {
+    "titulo": "Inscripción a Carreras de Grado: 2º cuatrimestre de 2021",
+    "actividades": {
+      "para": {
+        "ingresantes": {
+          "inscripcion": "03 de Mayo al 03 de Julio de 2021"
+        }
+      }
+    }
+  },
+  {
+    "titulo": "Cursada 2° Cuatrimestre 2021",
+    "actividades": {
+      "para": {
+        "regulares": {
+          "inscripcion": "02 al 04 de Agosto de 2021",
+          "inicio": "09 de Agosto de 2021",
+          "finalizacion": "27 de Noviembre de 2021"
+        },
+        "ingresantes": {
+          "inscripcion": "19 y 20 de Julio de 2021",
+          "inicio": "26 de Julio de 2021",
+          "finalizacion": "27 de Noviembre de 2021"
+        }
+      }
+    }
+  },
+  {
+    "titulo": "Inscripción a Carreras de Grado: 1º cuatrimestre de 2022",
+    "actividades": {
+      "para": {
+        "ingresantes": {
+          "inscripcion": "04 de Octubre al 27 de Noviembre de 2021"
+        }
+      }
+    }
+  },
+  {
+    "titulo": "Exámenes Turno Diciembre 2021",
+    "actividades": {
+      "para": {
+        "regulares": {
+          "inscripcion": "30 de Noviembre al 01 de Diciembre de 2021",
+          "examenes": "06 al 18 de Diciembre de 2021"
+        }
+      }
+    }
+  },
+  {
+    "titulo": "Exámenes Turno Febrero 2022",
+    "actividades": {
+      "para": {
+        "regulares": {
+          "inscripcion": "01 al 05 de Febrero de 2022",
+          "examenes": "14 al 26 de Febrero de 2022"
+        }
+      }
+    }
+  }
+]
