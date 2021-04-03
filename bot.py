@@ -50,7 +50,7 @@ def get_links_message():
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
     bot.reply_to(
-        message, "Bienvenidx a este botardo con información util sobre la Universidad Nacional del Oeste.")
+        message, "Bienvenidx a este botardo con información util sobre la Universidad Nacional del Oeste. Escribí <b>/help</b> para saber cómo seguir.")
 
 
 @bot.message_handler(commands=['help'])
