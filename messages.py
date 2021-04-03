@@ -12,7 +12,13 @@ def siu_failure_message(latency):
 
 
 def help_message():
-    return f"<b>infoUNObot</b> te brinda información necesaria sobre la Universidad Nacional del Oeste, desde el estado del siu o el campus, hasta fechas importantes o links utiles.\n\n<b>/help</b> - Muestra este mensaje.\n<b>/siu</b> - Obtiene información del siu para saber el estado del mismo y su latencia.\n<b>/links</b> - Te devuelve un listado de links utiles sobre la carrera (grupos, comunidades, etc).\n<b>/calendar</b> - Te muestra las fechas importantes del calendario académico de la Universidad.\n\nEste bot fue posible y llevado a cabo gracias a GNUno, cualquier consulta o pregunta hacela aquí: <i>inserte contacto de gnuno</i>."
+    message = f"<b>infoUNObot</b> te brinda información necesaria sobre la Universidad Nacional del Oeste, desde el estado del siu o el campus, hasta fechas importantes o links utiles.\n\n"
+    message += f"<b>/help</b> - Muestra este mensaje.\n"
+    message += f"<b>/siu</b> - Obtiene información del siu para saber el estado del mismo y su latencia.\n"
+    message += f"<b>/links</b> - Te devuelve un listado de links utiles sobre la carrera (grupos, comunidades, etc).\n"
+    message += f"<b>/calendar</b> - Te muestra las fechas importantes del calendario académico de la Universidad.\n"
+    message += f"<b>/mails</b> - Te muestra los mails más importantes de las escuelas, además si especificás la escuela te filtra el resultado."
+    message += f"\nEste bot fue posible y llevado a cabo gracias a GNUno, cualquier consulta o pregunta hacela aquí: <i>https://t.me/gnuno_merlo</i>."
 
 
 def links_message(data):
