@@ -1,4 +1,5 @@
 import json
+from unidecode import unidecode
 LINKS_ROOT_URL = 'https://gea-uno.github.io/'
 
 
@@ -70,12 +71,22 @@ def calendario_academico_message():
     return message
 
 
-def default_links():
-    return
+def build_mails_message(array):
+    message = ''
+    for item in array:
+        message += f"\n<u>Escuela de {item['escuela']}</u>\n"
+        for mail in item['mails']:
+            message += f"<b>{mail['name']}</b>: {mail['mail']}\n"
 
 
 def get_mails_by_term(*term):
+    message = f'Acá tenés los mails:\n'
+    with open('./assets/mails_escuelas.json', encoding='utf-8') as f:
+        mails = json.load(f)
+
     if len(term) > 0:
-        return term
+        result = filter(lambda x: unidecode(
+            term[0]).lower() in unidecode(x['escuela']).lower(), mails)
+        return message += build_mails_message(list(result))
     else:
-        return 'default'
+        return message += build_mails_message(mails)

@@ -1,0 +1,67 @@
+[
+  {
+    "escuela": "Informática",
+    "mails": [
+      {
+        "name": "Escuela",
+        "mail": "escueladeinformatica@uno.edu.ar"
+      },
+      {
+        "name": "Inscripciones",
+        "mail": "inscripcionesinformatica@uno.edu.ar"
+      }
+    ]
+  },
+  {
+    "escuela": "Ingenieria",
+    "mails": [
+      {
+        "name": "Escuela",
+        "mail": "escingeuno@uno.edu.ar"
+      },
+      {
+        "name": "Alumnos",
+        "mail": "infoalumnosingenieria@uno.edu.ar"
+      }
+    ]
+  },
+  {
+    "escuela": "Humanidades",
+    "mails": [
+      {
+        "name": "Escuela",
+        "mail": "escueladehumanidades@uno.edu.ar"
+      },
+      {
+        "name": "Alumnos",
+        "mail": "alumnos.humanidades@uno.edu.ar"
+      }
+    ]
+  },
+  {
+    "escuela": "Administracion",
+    "mails": [
+      {
+        "name": "Escuela",
+        "mail": "escueladeadministracion@uno.edu.ar"
+      },
+      {
+        "name": "Alumnos",
+        "mail": "alumnos.administracion@uno.edu.ar"
+      }
+    ]
+  },
+  {
+    "escuela": "Enfermería",
+    "mails": [
+      {
+        "name": "Escuela",
+        "mail": "escueladecienciasdelasalud@uno.edu.ar"
+      },
+      {
+        "name": "Alumnos",
+        "mail": "alumnos.salud@uno.edu.ar"
+      }
+    ]
+  }
+]
