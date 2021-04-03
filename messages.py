@@ -19,6 +19,7 @@ def help_message():
     message += f"<b>/calendar</b> - Te muestra las fechas importantes del calendario académico de la Universidad.\n"
     message += f"<b>/mails</b> - Te muestra los mails más importantes de las escuelas, además si especificás la escuela te filtra el resultado."
     message += f"\nEste bot fue posible y llevado a cabo gracias a GNUno, cualquier consulta o pregunta hacela aquí: <i>https://t.me/gnuno_merlo</i>."
+    return message
 
 
 def links_message(data):
