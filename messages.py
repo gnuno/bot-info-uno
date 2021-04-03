@@ -17,7 +17,7 @@ def help_message():
     message += f"<b>/siu</b> - Obtiene información del siu para saber el estado del mismo y su latencia.\n"
     message += f"<b>/links</b> - Te devuelve un listado de links utiles sobre la carrera (grupos, comunidades, etc).\n"
     message += f"<b>/calendar</b> - Te muestra las fechas importantes del calendario académico de la Universidad.\n"
-    message += f"<b>/mails</b> - Te muestra los mails más importantes de las escuelas, además si especificás la escuela te filtra el resultado."
+    message += f"<b>/mails</b> - Te muestra los mails más importantes de las escuelas, además si especificás la escuela te filtra el resultado.\n"
     message += f"\nEste bot fue posible y llevado a cabo gracias a GNUno, cualquier consulta o pregunta hacela aquí: <i>https://t.me/gnuno_merlo</i>."
     return message
 
