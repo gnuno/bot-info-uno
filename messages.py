@@ -77,6 +77,7 @@ def build_mails_message(array):
         message += f"\n<u>Escuela de {item['escuela']}</u>\n"
         for mail in item['mails']:
             message += f"<b>{mail['name']}</b>: {mail['mail']}\n"
+    return message
 
 
 def get_mails_by_term(*term):
