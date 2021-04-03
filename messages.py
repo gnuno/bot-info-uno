@@ -87,6 +87,8 @@ def get_mails_by_term(*term):
     if len(term) > 0:
         result = filter(lambda x: unidecode(
             term[0]).lower() in unidecode(x['escuela']).lower(), mails)
-        return message += build_mails_message(list(result))
+        message += build_mails_message(list(result))
     else:
-        return message += build_mails_message(mails)
+        message += build_mails_message(mails)
+
+    return message
