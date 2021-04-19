@@ -28,14 +28,14 @@ else :
 server = Flask(__name__)
 
 
-def get_siu_info():
-    siu_data = dict()
+def get_info(url):
+    url_data = dict()
     t0 = time.time()
-    r = requests.get('https://autogestion.uno.edu.ar/uno/')
+    r = requests.get(url)
     t1 = time.time()
-    siu_data['status'] = r.status_code
-    siu_data['latency'] = int((t1-t0) * 1000)
-    return siu_data
+    url_data['status'] = r.status_code
+    url_data['latency'] = int((t1-t0) * 1000)
+    return url_data
 
 
 def get_links_from_api():
@@ -45,12 +45,12 @@ def get_links_from_api():
     return responses.links_message(mapped_list)
 
 
-def siu_message():
-    siu_data = get_siu_info()
-    if siu_data['status'] == 200:
-        return responses.siu_success_message(siu_data['latency'])
+def url_message(url, name):
+    url_data = get_info(url)
+    if url_data['status'] == 200:
+        return responses.url_success_message(url_data['latency'], name)
     else:
-        return responses.siu_failure_message(siu_data['latency'])
+        return responses.url_failure_message(url_data['latency'], name)
 
 
 def get_links_message():
@@ -79,15 +79,21 @@ def get_useful_links(message):
     bot.send_message(chat_id, get_links_message())
 
 
-@bot.message_handler(commands=['siu'])
-def request_siu_information(message):
+@bot.message_handler(commands=['siu', 'campus'])
+def request_url_information(message):
     user_id = message.from_user.id
     chat_id = message.chat.id
-    url = 'https://autogestion.uno.edu.ar/uno/'
-    logger.info(f"El usuario {user_id} ha solicitado información del SIU.")
+    logger.info(f"El usuario {user_id} ha solicitado información de {message.text}.")
+    if message.text == "/siu":
+        url = 'https://autogestion.uno.edu.ar/uno/'
+        name = "siu guarani"
+    elif message.text == "/campus":
+        url = 'http://campusvirtual.uno.edu.ar/moodle/'
+        name = 'campus'
+
     bot.send_message(
         chat_id, f"<i>Solicitando información a {url} ...</i>")
-    bot.send_message(chat_id, siu_message())
+    bot.send_message(chat_id, url_message(url, name))
 
 
 @bot.message_handler(commands=['calendar'])

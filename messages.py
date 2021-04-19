@@ -3,12 +3,12 @@ from unidecode import unidecode
 LINKS_ROOT_URL = 'https://gea-uno.github.io/'
 
 
-def siu_success_message(latency):
-    return f"El siu guaraní ha respondido <b>exitosamente</b> con una latencia de <b>{latency}ms</b>"
+def url_success_message(latency, name):
+    return f"El {name} ha respondido <b>exitosamente</b> con una latencia de <b>{latency}ms</b>"
 
 
-def siu_failure_message(latency):
-    return f"Falló la solicitud al siu guaraní con una latencia de <b>{latency}ms</b>"
+def url_failure_message(latency, name):
+    return f"Falló la solicitud al {name} con una latencia de <b>{latency}ms</b>"
 
 
 def help_message():
