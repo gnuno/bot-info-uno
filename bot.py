@@ -12,9 +12,19 @@ logging.basicConfig(
 logger = telebot.logger
 telebot.logger.setLevel(logging.DEBUG)
 
-API_TOKEN = os.environ.get('TOKEN')
+MODE = os.environ.get("MODE")
 
-bot = telebot.TeleBot(API_TOKEN, parse_mode='HTML')
+if MODE == "prod":
+    API_TOKEN = os.environ.get('TOKEN')
+    bot = telebot.TeleBot(API_TOKEN, parse_mode='HTML') 
+    def run():
+        server.run(host="0.0.0.0", port=int(os.environ.get('PORT', 5000)))
+else :
+    API_TOKEN = '1761269185:AAFrxdpg13lS4X6NaHnENizGKa0VXsW9z9c'
+    bot = telebot.TeleBot(API_TOKEN, parse_mode='HTML')
+    def run():
+        bot.polling()
+
 server = Flask(__name__)
 
 
@@ -73,11 +83,11 @@ def get_useful_links(message):
 def request_siu_information(message):
     user_id = message.from_user.id
     chat_id = message.chat.id
+    url = 'https://autogestion.uno.edu.ar/uno/'
     logger.info(f"El usuario {user_id} ha solicitado información del SIU.")
     bot.send_message(
-        chat_id, f"<i>Solicitando información a https://autogestion.uno.edu.ar/uno/ ...</i>")
-    bot.send_message(
-        chat_id, siu_message())
+        chat_id, f"<i>Solicitando información a {url} ...</i>")
+    bot.send_message(chat_id, siu_message())
 
 
 @bot.message_handler(commands=['calendar'])
@@ -115,4 +125,4 @@ def webhook():
 
 
 if __name__ == "__main__":
-    server.run(host="0.0.0.0", port=int(os.environ.get('PORT', 5000)))
+    run()
