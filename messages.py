@@ -7,8 +7,8 @@ def url_success_message(latency, name):
     return f"El {name} ha respondido <b>exitosamente</b> con una latencia de <b>{latency}ms</b>"
 
 
-def url_failure_message(latency, name):
-    return f"Falló la solicitud al {name} con una latencia de <b>{latency}ms</b>"
+def url_failure_message(name):
+    return f"<b>Falló</b> la solicitud al {name}. Al parecer está caído."
 
 
 def help_message():
