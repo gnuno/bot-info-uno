@@ -39,6 +39,7 @@ pipenv install {PAQUETE}
 pipenv lock
 pipenv run pip freeze > requirements.txt
 
+
 # Si queres borrar el entorno virtual
 pipenv --rm
 ```
@@ -49,7 +50,7 @@ Ejecuta esto y anda a [UNOTestBots_BOT](http://t.me/UNOTestBots_BOT)
 ```
 pipenv run bot.py
 ```
-*NOTA: antes de ejecutar debes cargar el token, el cual es 1761269185:AAFLb-5t5oUIkR-oJDnv9vWkgCGqA1xSU_4*
+*NOTA: antes de ejecutar debes cargar el token, el cual es 1761269185:AAHLnECJ30OTXKnR5GkOvQaj6d0PNckoPcI*
 
 ### Aportes
 Para contribuir con el código o arreglando errores/bugs, lo podés hacer de la siguiente manera:

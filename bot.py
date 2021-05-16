@@ -21,7 +21,7 @@ if MODE == "prod":
     def run():
         server.run(host="0.0.0.0", port=int(os.environ.get('PORT', 5000)))
 else:
-    API_TOKEN = '1761269185:AAFLb-5t5oUIkR-oJDnv9vWkgCGqA1xSU_4' #Carga aqui el TOKEN de prueba
+    API_TOKEN = '' #Carga aqui el TOKEN de prueba
     bot = telebot.TeleBot(API_TOKEN, parse_mode='HTML')
 
     def run():
