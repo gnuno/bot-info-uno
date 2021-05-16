@@ -1,0 +1,27 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+autopep8 = "==1.5.6"
+certifi = "==2020.12.5"
+chardet = "==4.0.0"
+click = "==7.1.2"
+idna = "==2.10"
+itsdangerous = "==1.1.0"
+pycodestyle = "==2.7.0"
+requests = "==2.25.1"
+toml = "==0.10.2"
+urllib3 = "==1.26.4"
+Flask = "==1.1.2"
+Jinja2 = "==2.11.3"
+MarkupSafe = "==1.1.1"
+pyTelegramBotAPI = "==3.7.7"
+Unidecode = "==1.2.0"
+Werkzeug = "==1.0.1"
+
+[dev-packages]
+
+[requires]
+python_version = "3.8"
