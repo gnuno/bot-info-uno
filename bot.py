@@ -21,7 +21,11 @@ if MODE == "prod":
     def run():
         server.run(host="0.0.0.0", port=int(os.environ.get('PORT', 5000)))
 else:
+<<<<<<< HEAD
     API_TOKEN = '' #Carga aqui el TOKEN de prueba
+=======
+    API_TOKEN = '1761269185:AAHLnECJ30OTXKnR5GkOvQaj6d0PNckoPcI'
+>>>>>>> a944b44820e6d8efb24d4bb468e8f80872f39fc8
     bot = telebot.TeleBot(API_TOKEN, parse_mode='HTML')
 
     def run():
@@ -101,6 +105,14 @@ def request_url_information(message):
     bot.send_message(
         chat_id, f"<i>Solicitando información a {url} ...</i>")
     bot.send_message(chat_id, url_message(url, name))
+
+
+@bot.message_handler(commands=['comunidades_it'])
+def get_comunidades_it(message):
+    user_id = message.from_user.id
+    chat_id = message.chat.id
+    logger.info(f"El usuario {user_id} ha solicitado Comunidades IT.")
+    bot.send_message(chat_id, responses.comunidades_it())
 
 
 @bot.message_handler(commands=['calendar'])

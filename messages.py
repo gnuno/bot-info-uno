@@ -39,7 +39,7 @@ def links_message(data):
         elif name == 'links':
             links = f"<b>Plataformas UNO</b>: {LINKS_ROOT_URL}uno\n"
         elif name == 'info-comun':
-            comunidades = f"<b>Comunidades IT</b>: {LINKS_ROOT_URL}info/{name}\n"
+            comunidades = f"<b>Comunidades IT</b>: /comunidades_it\n"
 
     message = message + info + comunidades + enf + admin + hum + ingq + links
     message += f"\nY acá te dejamos el dashboard principal por si querés chusmear desde cero!\n{LINKS_ROOT_URL}"
@@ -78,6 +78,17 @@ def calendario_academico_message():
             message += f"{get_dates(para['ingresantes'])}\n"
     return message
 
+
+def comunidades_it():
+    with open('./assets/comunidades_it.json', encoding='utf-8') as f:
+        comunidades = json.load(f)
+    message = f"Las comunidades IT son: \n\n"
+    comus = list(comunidades['Comunidades'])
+    comus.sort(key=lambda x: x['name'])
+    for item in comus:
+        message += f"<b><u>{item['name']}</u></b>: {item['url']}. \n"
+    return message
+    
 
 def build_mails_message(array):
     message = ''
