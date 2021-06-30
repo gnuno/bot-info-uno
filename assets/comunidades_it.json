@@ -71,6 +71,14 @@
         {
             "name":"Ingles",
             "url":"https://chat.whatsapp.com/FU5uDcZQBY4JrUYClg2Tgj"
+        },
+        {
+            "name": "Rust",
+            "url": "https://t.me/rust_uno"
+        },
+        {
+            "name": "Haskell",
+            "url": "https://t.me/haskell_uno"
         }
     ]
 }

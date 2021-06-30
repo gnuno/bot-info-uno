@@ -12,11 +12,11 @@ def url_failure_message(name):
 
 
 def help_message():
-    message = f"<b>infoUNObot</b> te brinda información necesaria sobre la Universidad Nacional del Oeste, desde el estado del siu o el campus, hasta fechas importantes o links utiles.\n\n"
+    message = f"<b>infoUNObot</b> te brinda información necesaria sobre la Universidad Nacional del Oeste, desde el estado del siu o el campus, hasta fechas importantes o links útiles.\n\n"
     message += f"<b>/help</b> - Muestra este mensaje.\n"
     message += f"<b>/siu</b> - Obtiene información del siu para saber el estado del mismo y su latencia.\n"
     message += f"<b>/campus</b> - Obtiene información del campus virtual para saber el estado del mismo y su latencia.\n"
-    message += f"<b>/links</b> - Te devuelve un listado de links utiles sobre la carrera (grupos, comunidades, etc).\n"
+    message += f"<b>/links</b> - Te devuelve un listado de links útiles sobre la carrera (grupos, comunidades, etc).\n"
     message += f"<b>/calendar</b> - Te muestra las fechas importantes del calendario académico de la Universidad.\n"
     message += f"<b>/mails</b> - Te muestra los mails más importantes de las escuelas, además si especificás la escuela te filtra el resultado.\n"
     message += f"\nEste bot fue posible y llevado a cabo gracias a GNUno, cualquier consulta o pregunta hacela aquí: <i>https://t.me/gnuno_merlo</i>."
@@ -62,7 +62,7 @@ def get_dates(dicc):
 def calendario_academico_message():
     with open('./assets/calendario_academico.json', encoding='utf-8') as f:
         calendario = json.load(f)
-    message = f"El calendario acádemico es el siguiente:\n\n"
+    message = f"El calendario académico es el siguiente:\n\n"
     matches = ['Inscripción a Carreras de Grado', 'Exámenes Turno']
     for item in calendario:
         message += f"<b><u>{item['titulo']}</u></b>\n"
