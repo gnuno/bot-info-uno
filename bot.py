@@ -117,7 +117,7 @@ def get_comunidades_it(message):
 def get_academic_calendar(message):
     user_id = message.from_user.id
     chat_id = message.chat.id
-    logger.info(f"El usuario {user_id} ha solicitado el Calendario Academico.")
+    logger.info(f"El usuario {user_id} ha solicitado el Calendario Académico.")
     bot.send_message(chat_id, responses.calendario_academico_message())
 
 
