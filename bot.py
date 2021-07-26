@@ -96,7 +96,7 @@ def request_url_information(message):
     bot.send_message(chat_id, url_message(url, name))
 
 
-@bot.message_handler(commands=['calendar'])
+@bot.message_handler(commands=['calendar', 'calendario'])
 def get_academic_calendar(message):
     user_id = message.from_user.id
     chat_id = message.chat.id
