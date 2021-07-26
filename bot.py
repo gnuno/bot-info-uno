@@ -105,7 +105,7 @@ def request_url_information(message):
     bot.send_message(chat_id, url_message(url, name))
 
 
-@bot.message_handler(commands=['comunidades_it'])
+@bot.message_handler(commands=['comunidades_it', 'comunidades'])
 def get_comunidades_it(message):
     user_id = message.from_user.id
     chat_id = message.chat.id
