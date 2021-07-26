@@ -115,10 +115,15 @@ def get_comunidades_it(message):
 
 @bot.message_handler(commands=['calendar'])
 def get_academic_calendar(message):
+    arguments = message.text.split()
     user_id = message.from_user.id
     chat_id = message.chat.id
-    logger.info(f"El usuario {user_id} ha solicitado el Calendario Académico.")
-    bot.send_message(chat_id, responses.calendario_academico_message())
+    if len(arguments) > 1 and arguments[1] == 'feriados':
+        logger.info(f"El usuario {user_id} ha solicitado el Calendario de Feriados.")
+        bot.send_message(chat_id, responses.calendario_feriados_message())
+    else:
+        logger.info(f"El usuario {user_id} ha solicitado el Calendario Académico.")
+        bot.send_message(chat_id, responses.calendario_academico_message())
 
 
 @bot.message_handler(commands=['mails'])
