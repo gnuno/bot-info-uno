@@ -16,12 +16,16 @@ MODE = os.environ.get("MODE")
 
 if MODE == "prod":
     API_TOKEN = os.environ.get('TOKEN')
-    bot = telebot.TeleBot(API_TOKEN, parse_mode='HTML') 
+    bot = telebot.TeleBot(API_TOKEN, parse_mode='HTML')
+
     def run():
         server.run(host="0.0.0.0", port=int(os.environ.get('PORT', 5000)))
-else :
-    API_TOKEN = '1761269185:AAFrxdpg13lS4X6NaHnENizGKa0VXsW9z9c'
+else:
+
+    API_TOKEN = '' #Carga aqui el TOKEN de prueba
+
     bot = telebot.TeleBot(API_TOKEN, parse_mode='HTML')
+
     def run():
         bot.polling()
 
@@ -30,12 +34,16 @@ server = Flask(__name__)
 
 def get_info(url):
     url_data = dict()
-    t0 = time.time()
-    r = requests.get(url)
-    t1 = time.time()
-    url_data['status'] = r.status_code
-    url_data['latency'] = int((t1-t0) * 1000)
-    return url_data
+    try:
+        t0 = time.time()
+        r = requests.get(url)
+        r.raise_for_status()
+        t1 = time.time()
+        url_data['status'] = r.status_code
+        url_data['latency'] = int((t1-t0) * 1000)
+        return url_data
+    except requests.exceptions.RequestException as err:
+        return url_data
 
 
 def get_links_from_api():
@@ -47,10 +55,10 @@ def get_links_from_api():
 
 def url_message(url, name):
     url_data = get_info(url)
-    if url_data['status'] == 200:
+    if 'status' in url_data.keys() and url_data['status'] == 200:
         return responses.url_success_message(url_data['latency'], name)
     else:
-        return responses.url_failure_message(url_data['latency'], name)
+        return responses.url_failure_message(name)
 
 
 def get_links_message():
@@ -83,7 +91,8 @@ def get_useful_links(message):
 def request_url_information(message):
     user_id = message.from_user.id
     chat_id = message.chat.id
-    logger.info(f"El usuario {user_id} ha solicitado información de {message.text}.")
+    logger.info(
+        f"El usuario {user_id} ha solicitado información de {message.text}.")
     if message.text == "/siu":
         url = 'https://autogestion.uno.edu.ar/uno/'
         name = "siu guarani"
@@ -96,11 +105,19 @@ def request_url_information(message):
     bot.send_message(chat_id, url_message(url, name))
 
 
+@bot.message_handler(commands=['comunidades_it'])
+def get_comunidades_it(message):
+    user_id = message.from_user.id
+    chat_id = message.chat.id
+    logger.info(f"El usuario {user_id} ha solicitado Comunidades IT.")
+    bot.send_message(chat_id, responses.comunidades_it())
+
+
 @bot.message_handler(commands=['calendar', 'calendario'])
 def get_academic_calendar(message):
     user_id = message.from_user.id
     chat_id = message.chat.id
-    logger.info(f"El usuario {user_id} ha solicitado el Calendario Academico.")
+    logger.info(f"El usuario {user_id} ha solicitado el Calendario Académico.")
     bot.send_message(chat_id, responses.calendario_academico_message())
 
 

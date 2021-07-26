@@ -7,15 +7,16 @@ def url_success_message(latency, name):
     return f"El {name} ha respondido <b>exitosamente</b> con una latencia de <b>{latency}ms</b>"
 
 
-def url_failure_message(latency, name):
-    return f"Falló la solicitud al {name} con una latencia de <b>{latency}ms</b>"
+def url_failure_message(name):
+    return f"<b>Falló</b> la solicitud al {name}. Al parecer está caído."
 
 
 def help_message():
-    message = f"<b>infoUNObot</b> te brinda información necesaria sobre la Universidad Nacional del Oeste, desde el estado del siu o el campus, hasta fechas importantes o links utiles.\n\n"
+    message = f"<b>infoUNObot</b> te brinda información necesaria sobre la Universidad Nacional del Oeste, desde el estado del siu o el campus, hasta fechas importantes o links útiles.\n\n"
     message += f"<b>/help</b> - Muestra este mensaje.\n"
     message += f"<b>/siu</b> - Obtiene información del siu para saber el estado del mismo y su latencia.\n"
-    message += f"<b>/links</b> - Te devuelve un listado de links utiles sobre la carrera (grupos, comunidades, etc).\n"
+    message += f"<b>/campus</b> - Obtiene información del campus virtual para saber el estado del mismo y su latencia.\n"
+    message += f"<b>/links</b> - Te devuelve un listado de links útiles sobre la carrera (grupos, comunidades, etc).\n"
     message += f"<b>/calendar</b> - Te muestra las fechas importantes del calendario académico de la Universidad.\n"
     message += f"<b>/mails</b> - Te muestra los mails más importantes de las escuelas, además si especificás la escuela te filtra el resultado.\n"
     message += f"\nEste bot fue posible y llevado a cabo gracias a GNUno, cualquier consulta o pregunta hacela aquí: <i>https://t.me/gnuno_merlo</i>."
@@ -38,7 +39,7 @@ def links_message(data):
         elif name == 'links':
             links = f"<b>Plataformas UNO</b>: {LINKS_ROOT_URL}uno\n"
         elif name == 'info-comun':
-            comunidades = f"<b>Comunidades IT</b>: {LINKS_ROOT_URL}info/{name}\n"
+            comunidades = f"<b>Comunidades IT</b>: /comunidades_it\n"
 
     message = message + info + comunidades + enf + admin + hum + ingq + links
     message += f"\nY acá te dejamos el dashboard principal por si querés chusmear desde cero!\n{LINKS_ROOT_URL}"
@@ -61,7 +62,7 @@ def get_dates(dicc):
 def calendario_academico_message():
     with open('./assets/calendario_academico.json', encoding='utf-8') as f:
         calendario = json.load(f)
-    message = f"El calendario acádemico es el siguiente:\n\n"
+    message = f"El calendario académico es el siguiente:\n\n"
     matches = ['Inscripción a Carreras de Grado', 'Exámenes Turno']
     for item in calendario:
         message += f"<b><u>{item['titulo']}</u></b>\n"
@@ -77,6 +78,17 @@ def calendario_academico_message():
             message += f"{get_dates(para['ingresantes'])}\n"
     return message
 
+
+def comunidades_it():
+    with open('./assets/comunidades_it.json', encoding='utf-8') as f:
+        comunidades = json.load(f)
+    message = f"Las comunidades IT son: \n\n"
+    comus = list(comunidades['Comunidades'])
+    comus.sort(key=lambda x: x['name'])
+    for item in comus:
+        message += f"<b><u>{item['name']}</u></b>: {item['url']}. \n"
+    return message
+    
 
 def build_mails_message(array):
     message = ''

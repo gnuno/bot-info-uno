@@ -1,0 +1,84 @@
+{
+    "Comunidades": [
+        {
+            "name": "ReactJS",
+            "url": "https://t.me/React_UNO"
+        },
+        {
+            "name": "Java",
+            "url": "http://t.me/java_uno"
+        },
+        {
+            "name": "Git",
+            "url": "https://t.me/unogit"
+        },
+        {
+            "name": "Python",
+            "url": "https://t.me/uno_py"
+        },
+        {
+            "name": "JavaScript",
+            "url": "http://t.me/javascript_uno"
+        },
+        {
+            "name":"Node",
+            "url":"https://t.me/nodejs_uno"
+        },
+        {
+            "name":"R lang",
+            "url":"https://t.me/r_undeloeste"
+        },
+        {
+            "name":"Bases de Datos",
+            "url":"https://t.me/DDBBUNO"
+        },
+        {
+            "name":"Algoritmia",
+            "url":"https://t.me/algoritmiaUNO"
+        },
+        {
+            "name":"PHP",
+            "url":"https://t.me/phpuno"
+        },
+        {
+            "name":"WordPress",
+            "url":"https://t.me/Wordpress_UNO"
+        },
+        {
+            "name":"C",
+            "url":"https://t.me/c_UNO"
+        },
+        {
+            "name":"VueJS",
+            "url":"https://t.me/uno_vue"
+        },
+        {
+            "name":"Docker",
+            "url":"https://t.me/uno_docker"
+        },
+        {
+            "name":"Angular",
+            "url":"https://t.me/Angular_UNO"
+        },
+        {
+            "name":"C#",
+            "url":"https://t.me/unodotnet"
+        },
+        {
+            "name":"LaTeX",
+            "url":"https://t.me/latex_uno"
+        },
+        {
+            "name":"Ingles",
+            "url":"https://chat.whatsapp.com/FU5uDcZQBY4JrUYClg2Tgj"
+        },
+        {
+            "name": "Rust",
+            "url": "https://t.me/rust_uno"
+        },
+        {
+            "name": "Haskell",
+            "url": "https://t.me/haskell_uno"
+        }
+    ]
+}
