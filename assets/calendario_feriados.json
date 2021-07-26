@@ -1,0 +1,120 @@
+[{
+        "mes": "Enero",
+        "feriados": [
+            {
+                "dia": "01 de Enero",
+                "motivo": "Año Nuevo"
+            }
+        ]
+    },
+    {
+        "mes": "Febrero",
+        "feriados": [
+            {
+                "dia": "15 de Febrero",
+                "motivo": "Carnaval"
+            },
+            {
+                "dia": "16 de Febrero",
+                "motivo": "Carnaval"
+            }
+        ]
+    },
+    {
+        "mes": "Marzo",
+        "feriados": [
+            {
+                "dia": "24 de Marzo",
+                "motivo": "Día Nacional de la Memoria por la Verdad y la Justicia"
+            }
+        ]
+    },
+    {
+        "mes": "Abril",
+        "feriados": [
+            {
+                "dia": "02 de Abril",
+                "motivo": "Día del Veterano y de los Caídos en la Guerra de Malvinas"
+            }
+        ]
+    },
+    {
+        "mes": "Mayo",
+        "feriados": [
+            {
+                "dia": "01 de Mayo",
+                "motivo": "Día del Trabajador"
+            },
+            {
+                "dia": "25 de Mayo",
+                "motivo": "Día de la Revolución de Mayo"
+            }
+        ]
+    },
+    {
+        "mes": "Junio",
+        "feriados": [
+            {
+                "dia": "16 de Junio",
+                "motivo": "Día del Paso a la Inmortalidad del General Martín Miguel de Güemes"
+            },
+            {
+                "dia": "20 de Junio",
+                "motivo": "Día del Paso a la Inmortalidad del General Manuel Belgrano"
+            }
+        ]
+    },
+    {
+        "mes": "Julio",
+        "feriados": [
+            {
+                "dia": "09 de Julio",
+                "motivo": "Día de la Independencia"
+            }
+        ]
+    },
+    {
+        "mes": "Agosto",
+        "feriados": [
+            {
+                "dia": "17 de Agosto",
+                "motivo": "Día del Paso a la Inmortalidad del Gral. José de San Martín"
+            }
+        ]
+    },
+    {
+        "mes": "Septiembre",
+        "feriados": []
+    },
+    {
+        "mes": "Octubre",
+        "feriados": [
+            {
+                "dia": "12 de Octubre",
+                "motivo": "Día del Respeto a la Diversidad Cultural"
+            }
+        ]
+    },
+    {
+        "mes": "Noviembre",
+        "feriados": [
+            {
+                "dia": "20 de Noviembre",
+                "motivo": "Día de la Soberanía Nacional"
+            }
+        ]
+    },
+    {
+        "mes": "Diciembre",
+        "feriados": [
+            {
+                "dia": "08 de Diciembre",
+                "motivo": "Inmaculada Concepción de María"
+            },
+            {
+                "dia": "25 de Diciembre",
+                "motivo": "Navidad"
+            }
+        ]
+    }
+]
