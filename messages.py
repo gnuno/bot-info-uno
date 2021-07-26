@@ -19,6 +19,7 @@ def help_message():
     message += f"<b>/siu</b> - Obtiene información del siu para saber el estado del mismo y su latencia.\n"
     message += f"<b>/campus</b> - Obtiene información del campus virtual para saber el estado del mismo y su latencia.\n"
     message += f"<b>/links</b> - Te devuelve un listado de links útiles sobre la carrera (grupos, comunidades, etc).\n"
+    message += f"<b>/comunidades</b> - Te devuelve un listado de links de nuestras comunidades.\n"
     message += f"<b>/calendar</b> ó <b>/calendario</b> - Te muestra las fechas importantes del calendario académico de la Universidad. Si escribis <b>/calendar feriados</b> te muestra los feriados del año corriente\n"
     message += f"<b>/mails</b> - Te muestra los mails más importantes de las escuelas, además si especificás la escuela te filtra el resultado.\n"
     message += f"\nEste bot fue posible y llevado a cabo gracias a GNUno, cualquier consulta o pregunta hacela aquí: <i>https://t.me/gnuno_merlo</i>."
@@ -86,7 +87,7 @@ def calendario_feriados_message():
     message = f"Calendario Feriados {datetime.today().year}:\n\n"
     for mes in calendario:
         message += f"<b><u>{mes['mes']}</u></b>\n"
-        if not mes['feariados']:
+        if not mes['feriados']:
             message += f"Ninguno\n"
         else:
             for feriado in mes['feriados']:
