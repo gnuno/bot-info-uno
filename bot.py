@@ -71,7 +71,7 @@ def send_welcome(message):
         message, "Bienvenidx a este botardo con información util sobre la Universidad Nacional del Oeste. Escribí <b>/help</b> para saber cómo seguir.")
 
 
-@bot.message_handler(commands=['help'])
+@bot.message_handler(commands=['help','ayuda'])
 def help_message(message):
     user_id = message.from_user.id
     logger.info(f"El usuario {user_id} ha solicitado AYUDA.")
@@ -113,7 +113,7 @@ def get_comunidades_it(message):
     bot.send_message(chat_id, responses.comunidades_it())
 
 
-@bot.message_handler(commands=['calendar'])
+@bot.message_handler(commands=['calendar','calendario'])
 def get_academic_calendar(message):
     user_id = message.from_user.id
     chat_id = message.chat.id
