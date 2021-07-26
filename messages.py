@@ -1,7 +1,8 @@
-import json
+import json, requests
 from unidecode import unidecode
 from datetime import datetime
 LINKS_ROOT_URL = 'https://gea-uno.github.io/'
+API_URL = 'http://igna98.alwaysdata.net/'
 
 
 def url_success_message(latency, name):
@@ -89,17 +90,17 @@ def calendario_feriados_message():
             message += f"Ninguno\n"
         else:
             for feriado in mes['feriados']:
-                message += f"<u>{feriado['dia']}:</u> {feriado['motivo'}\n"
+                message += f"<u>{feriado['dia']}:</u> {feriado['motivo']}\n"
     return message
 
 def comunidades_it():
-    with open('./assets/comunidades_it.json', encoding='utf-8') as f:
-        comunidades = json.load(f)
+    url = f'{API_URL}link?father=/info/comunidades'
+    comunidades = requests.get(url).json()['data']
+
     message = f"Las comunidades IT son: \n\n"
-    comus = list(comunidades['Comunidades'])
-    comus.sort(key=lambda x: x['name'])
-    for item in comus:
-        message += f"<b><u>{item['name']}</u></b>: {item['url']}. \n"
+
+    for item in comunidades:
+        message += f"<b><u>{item['title']}</u></b>: {item['url']}. \n"
     return message
     
 
