@@ -1,5 +1,6 @@
 import json
 from unidecode import unidecode
+from datetime import datetime
 LINKS_ROOT_URL = 'https://gea-uno.github.io/'
 
 
@@ -78,6 +79,18 @@ def calendario_academico_message():
             message += f"{get_dates(para['ingresantes'])}\n"
     return message
 
+def calendario_feriados_message():
+    with open('./assets/calendario_feriados.json', encoding="utf-8") as f:
+        calendario = json.load(f)    
+    message = f"Calendario Feriados {datetime.today().year}:\n\n"
+    for mes in calendario:
+        message += f"<b><u>{mes['mes']}</u></b>\n"
+        if not mes['feariados']:
+            message += f"Ninguno\n"
+        else:
+            for feriado in mes['feriados']:
+                message += f"<u>{feriado['dia']}:</u> {feriado['motivo'}\n"
+    return message
 
 def comunidades_it():
     with open('./assets/comunidades_it.json', encoding='utf-8') as f:
