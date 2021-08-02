@@ -12,6 +12,8 @@ accepted_commands = [
     'calendar',
     'calendario',
     'mails',
+    'plandeestudios',
+    'plan'
 ]
 
 handlers = {
@@ -26,5 +28,7 @@ handlers = {
     'calendar': h.get_academic_calendar,
     'calendario': h.get_academic_calendar,
     'mails': h.get_emails,
-    'welcome': h.welcome_new_user
+    'welcome': h.welcome_new_user,
+    'plandeestudios': h.send_curriculum,
+    'plan': h.send_curriculum,
 }

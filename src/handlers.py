@@ -81,3 +81,10 @@ def get_emails(message):
         bot.send_message(chat_id, responses.get_mails_by_term(arguments[1]))
     else:
         bot.send_message(chat_id, responses.get_mails_by_term())
+
+
+def send_curriculum(message):
+    chat_id = message.chat.id
+    message_id = message.message_id
+    doc = open('./assets/curriculum/Plan-de-Estudios-Lic-en-Informatica.pdf', 'rb')
+    bot.send_document(chat_id, doc, reply_to_message_id=message_id)
