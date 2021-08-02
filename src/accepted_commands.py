@@ -26,4 +26,5 @@ handlers = {
     'calendar': h.get_academic_calendar,
     'calendario': h.get_academic_calendar,
     'mails': h.get_emails,
+    'welcome': h.welcome_new_user
 }

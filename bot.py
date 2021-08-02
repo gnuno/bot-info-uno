@@ -16,7 +16,14 @@ server = Flask(__name__)
 
 @bot.message_handler(commands=accepted_commands)
 def general_handler(message):
-    handlers[message.text.replace('/', '')](message)
+    key = message.text.replace(
+        '/', '').replace('@infoUNO_bot', '').replace('@UNOTestBots_BOT', '')
+    handlers[key](message)
+
+
+@bot.message_handler(content_types=["new_chat_members"])
+def welcome_new_members(message):
+    handlers['welcome'](message)
 
 
 @server.route('/' + API_TOKEN, methods=['POST'])

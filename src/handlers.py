@@ -3,6 +3,18 @@ from src.helpers import get_links_message, get_info, get_links_from_api, url_mes
 import src.messages as responses
 
 
+def welcome_new_user(message):
+    is_bot = message.json['new_chat_participant']['is_bot']
+    if not is_bot:
+        new_user_id = message.json['new_chat_participant']['id']
+        logger.info(
+            f"El usuario {new_user_id} se ha unido al grupo.")
+        chat_id = message.chat.id
+        username = message.json['new_chat_participant']['username']
+        bot.send_message(
+            chat_id, f"Bienvenidx @{username}. Recordá leer las reglas y que con el comando <b>/help</b> puedo ayudarte.")
+
+
 def send_welcome(message):
     bot.reply_to(
         message, "Bienvenidx a este botardo con información util sobre la Universidad Nacional del Oeste. Escribí <b>/help</b> para saber cómo seguir.")
