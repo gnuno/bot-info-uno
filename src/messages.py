@@ -1,4 +1,5 @@
-import json, requests
+import json
+import requests
 from unidecode import unidecode
 from datetime import datetime
 LINKS_ROOT_URL = 'https://gea-uno.github.io/'
@@ -14,15 +15,9 @@ def url_failure_message(name):
 
 
 def help_message():
-    message = f"<b>infoUNObot</b> te brinda información necesaria sobre la Universidad Nacional del Oeste, desde el estado del siu o el campus, hasta fechas importantes o links útiles.\n\n"
-    message += f"<b>/help</b> ó <b>/ayuda</b> - Muestra este mensaje.\n"
-    message += f"<b>/siu</b> - Obtiene información del siu para saber el estado del mismo y su latencia.\n"
-    message += f"<b>/campus</b> - Obtiene información del campus virtual para saber el estado del mismo y su latencia.\n"
-    message += f"<b>/links</b> - Te devuelve un listado de links útiles sobre la carrera (grupos, comunidades, etc).\n"
-    message += f"<b>/comunidades</b> - Te devuelve un listado de links de nuestras comunidades.\n"
-    message += f"<b>/calendar</b> ó <b>/calendario</b> - Te muestra las fechas importantes del calendario académico de la Universidad. Si escribis <b>/calendar feriados</b> te muestra los feriados del año corriente\n"
-    message += f"<b>/mails</b> - Te muestra los mails más importantes de las escuelas, además si especificás la escuela te filtra el resultado.\n"
-    message += f"\nEste bot fue posible y llevado a cabo gracias a GNUno, cualquier consulta o pregunta hacela aquí: <i>https://t.me/gnuno_merlo</i>."
+    with open('./assets/messages/help.txt', encoding='utf-8') as f:
+        message = f.read()
+
     return message
 
 
@@ -49,41 +44,15 @@ def links_message(data):
     return message
 
 
-def get_dates(dicc):
-    message = ''
-    if 'inscripcion' in dicc:
-        message += f"Inscripcion: {dicc['inscripcion']}\n"
-    if 'inicio' in dicc:
-        message += f"Inicio: {dicc['inicio']}\n"
-    if 'finalizacion' in dicc:
-        message += f"Finalizacion: {dicc['finalizacion']}\n"
-    if 'examenes' in dicc:
-        message += f"Examanes: {dicc['examenes']}\n"
-    return message
-
-
 def calendario_academico_message():
-    with open('./assets/calendario_academico.json', encoding='utf-8') as f:
-        calendario = json.load(f)
-    message = f"El calendario académico es el siguiente:\n\n"
-    matches = ['Inscripción a Carreras de Grado', 'Exámenes Turno']
-    for item in calendario:
-        message += f"<b><u>{item['titulo']}</u></b>\n"
-        para = item['actividades']['para']
-        isMatch = [True for x in matches if x in item['titulo']]
-        if 'regulares' in para:
-            if True not in isMatch:
-                message += f"<b>Regulares</b>\n"
-            message += f"{get_dates(para['regulares'])}\n"
-        if 'ingresantes' in para:
-            if True not in isMatch:
-                message += f"<b>Ingresantes</b>\n"
-            message += f"{get_dates(para['ingresantes'])}\n"
+    with open('./assets/messages/calendario-academico.txt', encoding='utf-8') as f:
+        message = f.read()
     return message
+
 
 def calendario_feriados_message():
     with open('./assets/calendario_feriados.json', encoding="utf-8") as f:
-        calendario = json.load(f)    
+        calendario = json.load(f)
     message = f"Calendario Feriados {datetime.today().year}:\n\n"
     for mes in calendario:
         message += f"<b><u>{mes['mes']}</u></b>\n"
@@ -94,6 +63,7 @@ def calendario_feriados_message():
                 message += f"<u>{feriado['dia']}:</u> {feriado['motivo']}\n"
     return message
 
+
 def comunidades_it():
     url = f'{API_URL}link?father=/info/comunidades'
     comunidades = requests.get(url).json()['data']
@@ -103,7 +73,7 @@ def comunidades_it():
     for item in comunidades:
         message += f"<b><u>{item['title']}</u></b>: {item['url']}. \n"
     return message
-    
+
 
 def build_mails_message(array):
     message = ''
