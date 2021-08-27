@@ -17,8 +17,8 @@ server = Flask(__name__)
 @bot.message_handler(commands=accepted_commands)
 def general_handler(message):
     key = message.text.replace(
-        '/', '').replace('@infoUNO_bot', '').replace('@UNOTestBots_BOT', '')
-    handlers[key](message)
+        '/', '').replace('@infoUNO_bot', '').replace('@UNOTestBots_BOT', '').split(' ')
+    handlers[key[0]](message)
 
 
 @bot.message_handler(content_types=["new_chat_members"])
