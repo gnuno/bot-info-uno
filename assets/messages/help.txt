@@ -8,4 +8,4 @@
 <b>/calendar</b> ó <b>/calendario</b> - Te muestra las fechas importantes del calendario académico de la Universidad. Si escribis <b>/calendar feriados</b> te muestra los feriados del año corriente.
 <b>/mails</b> - Te muestra los mails más importantes de las escuelas, además si especificás la escuela te filtra el resultado.
 
-Este bot fue posible y llevado a cabo gracias a GNUno, cualquier consulta o pregunta hacela aquí: <i>https://t.me/gnuno_merlo</i>.
+Este bot fue posible y llevado a cabo gracias a GNUno, para saber como funciona o colaborar: <i>https://github.com/gnuno/bot-info-uno</i>.
