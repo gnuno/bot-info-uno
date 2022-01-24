@@ -34,3 +34,19 @@ def url_message(url, name):
         return responses.url_success_message(url_data['latency'], name)
     else:
         return responses.url_failure_message(name)
+
+
+def url_correlatives(query):
+    res = requests.get(f'https://api-plan-de-estudios.herokuapp.com/course/correlatives?name={query}').json()
+    if 'error' in res:
+        return res['error']
+    data = res['data']
+    
+    if type(data) == str:
+        return data
+    else:
+        msg = f'Correlativas de <b>{res["course"]}</b>:\n'
+        for c in data:
+            msg += f"- {c[0]['name']}\n"
+        return msg
+    return 'Falló la solicitud'

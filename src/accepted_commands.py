@@ -13,7 +13,9 @@ accepted_commands = [
     'calendario',
     'mails',
     'plandeestudios',
-    'plan'
+    'plan',
+    'correlativa',
+    'correlative'
 ]
 
 handlers = {
@@ -31,4 +33,6 @@ handlers = {
     'welcome': h.welcome_new_user,
     'plandeestudios': h.send_curriculum,
     'plan': h.send_curriculum,
+    'correlativa': h.get_correlatives,
+    'correlative': h.get_correlatives
 }
