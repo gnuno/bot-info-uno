@@ -1,5 +1,5 @@
 from src.setup import bot, logger
-from src.helpers import get_links_message, get_info, get_links_from_api, url_message
+from src.helpers import get_links_message, get_info, get_links_from_api, url_message, url_correlatives
 import src.messages as responses
 
 
@@ -88,3 +88,13 @@ def send_curriculum(message):
     message_id = message.message_id
     doc = open('./assets/curriculum/plan-de-estudios-inf.png', 'rb')
     bot.send_photo(chat_id, doc, reply_to_message_id=message_id)
+
+def get_correlatives(message):
+    args = message.text.split()
+    args.pop(0)
+    materia = ' '.join(args)
+    logger.info(f"El usuario {message.from_user.id} ha solicitado CORRELATIVAS de {materia}.")
+    if len(args) == 0:
+        bot.send_message(message.chat.id, "Para conocer las correlativas de una materia usa este comando junto a el nombre de la materia a solicitar.\n Ejemplo: /correlative analisis matematico ii")
+    else:
+        bot.send_message(message.chat.id, url_correlatives(materia))
