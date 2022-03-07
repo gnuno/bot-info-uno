@@ -1,87 +1,83 @@
 [
   {
-    "titulo": "Exámenes Turno Febrero 2021",
-    "actividades": {
-      "para": {
-        "regulares": {
-          "inscripcion": "01 y 02 de Febrero de 2021",
-          "examenes": "05 al 20 de Febrero de 2021"
-        }
-      }
-    }
-  },
-  {
-    "titulo": "Cursada 1° Cuatrimestre 2021",
-    "actividades": {
-      "para": {
-        "regulares": {
-          "inscripcion": "22 y 23 de Febrero de 2021",
-          "inicio": "01 de Marzo de 2021",
-          "finalizacion": "03 de Julio de 2021"
-        },
-        "ingresantes": {
-          "inscripcion": "22 y 23 de Febrero de 2021",
-          "inicio": "15 de Marzo de 2021",
-          "finalizacion": "03 de Julio de 2021"
-        }
-      }
-    }
-  },
-  {
-    "titulo": "Inscripción a Carreras de Grado: 2º cuatrimestre de 2021",
-    "actividades": {
-      "para": {
-        "ingresantes": {
-          "inscripcion": "03 de Mayo al 03 de Julio de 2021"
-        }
-      }
-    }
-  },
-  {
-    "titulo": "Cursada 2° Cuatrimestre 2021",
-    "actividades": {
-      "para": {
-        "regulares": {
-          "inscripcion": "02 al 04 de Agosto de 2021",
-          "inicio": "09 de Agosto de 2021",
-          "finalizacion": "27 de Noviembre de 2021"
-        },
-        "ingresantes": {
-          "inscripcion": "19 y 20 de Julio de 2021",
-          "inicio": "26 de Julio de 2021",
-          "finalizacion": "27 de Noviembre de 2021"
-        }
-      }
-    }
-  },
-  {
-    "titulo": "Inscripción a Carreras de Grado: 1º cuatrimestre de 2022",
-    "actividades": {
-      "para": {
-        "ingresantes": {
-          "inscripcion": "04 de Octubre al 27 de Noviembre de 2021"
-        }
-      }
-    }
-  },
-  {
-    "titulo": "Exámenes Turno Diciembre 2021",
-    "actividades": {
-      "para": {
-        "regulares": {
-          "inscripcion": "30 de Noviembre al 01 de Diciembre de 2021",
-          "examenes": "06 al 18 de Diciembre de 2021"
-        }
-      }
-    }
-  },
-  {
     "titulo": "Exámenes Turno Febrero 2022",
     "actividades": {
       "para": {
         "regulares": {
           "inscripcion": "01 al 05 de Febrero de 2022",
           "examenes": "14 al 26 de Febrero de 2022"
+        }
+      }
+    }
+  },
+  {
+    "titulo": "Cursada 1° Cuatrimestre 2022",
+    "actividades": {
+      "para": {
+        "regulares": {
+          "inscripcion": "02 y 03 de Marzo de 2022",
+          "inicio": "14 de Marzo de 2022",
+          "finalizacion": "02 de Julio de 2022"
+        },
+        "ingresantes": {
+          "inscripcion": "21 y 22 de Febrero de 2022",
+          "inicio": "02 de Marzo de 2022",
+          "finalizacion": "02 de Julio de 2022"
+        }
+      }
+    }
+  },
+  {
+    "titulo": "Inscripción a Carreras de Grado: Ciclo Lectivo 2023",
+    "actividades": {
+      "para": {
+        "ingresantes": {
+          "inscripcion": "19 de Septiembre al 20 de Noviembre de 2022"
+        }
+      }
+    }
+  },
+  {
+    "titulo": "Cursada 2° Cuatrimestre 2022",
+    "actividades": {
+      "para": {
+        "regulares": {
+          "inscripcion": "02 y 03 de Agosto de 2022",
+          "inicio": "08 de Agosto de 2022",
+          "finalizacion": "26 de Noviembre de 2022"
+        }
+      }
+    }
+  },
+  {
+    "titulo": "Exámenes Turno Julio 2022",
+    "actividades": {
+      "para": {
+        "regulares": {
+          "inscripcion": "05 y 06 de Julio de 2022",
+          "examenes": "13 al 30 de Julio de 2022"
+        }
+      }
+    }
+  },
+  {
+    "titulo": "Exámenes Turno Diciembre 2022",
+    "actividades": {
+      "para": {
+        "regulares": {
+          "inscripcion": "29 y 30 de Noviembre de 2022",
+          "examenes": "05 al 17 de Diciembre de 2022"
+        }
+      }
+    }
+  },
+  {
+    "titulo": "Exámenes Turno Febrero 2023",
+    "actividades": {
+      "para": {
+        "regulares": {
+          "inscripcion": "02 y 03 de Febrero de 2023",
+          "examenes": "07 al 21 de Febrero de 2023"
         }
       }
     }
