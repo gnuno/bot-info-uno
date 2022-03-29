@@ -1,9 +1,10 @@
 import json
 import requests
+import random 
 from unidecode import unidecode
 from datetime import datetime
 LINKS_ROOT_URL = 'https://gea-uno.github.io/'
-API_URL = 'http://igna98.alwaysdata.net/'
+API_URL = 'https://gealinks-api.herokuapp.com/'
 
 
 def url_success_message(latency, name):
@@ -97,3 +98,7 @@ def get_mails_by_term(*term):
         message += build_mails_message(mails)
 
     return message
+
+def random_ignore_mudoc():
+    options = ["Shh", "Hoy no murd0c", "Otra vez vos?", "Te voy a acusar con mi mamá!", "ehh no se JAJAJA lpm"]
+    return random.choice(options)

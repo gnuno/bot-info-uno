@@ -3,6 +3,7 @@ from flask import Flask, request
 import os
 from src.setup import MODE, API_TOKEN, bot, logger
 from src.accepted_commands import accepted_commands, handlers
+from src.messages import random_ignore_mudoc
 
 if MODE == "prod":
     def run():
@@ -18,6 +19,8 @@ server = Flask(__name__)
 def general_handler(message):
     key = message.text.replace(
         '/', '').replace('@infoUNO_bot', '').replace('@UNOTestBots_BOT', '').split(' ')
+    if(message.from_user.id == 710345708):
+        bot.send_message(message.chat.id, random_ignore_mudoc())
     handlers[key[0]](message)
 
 
