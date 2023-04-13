@@ -66,11 +66,9 @@ def calendario_feriados_message():
 
 
 def comunidades_it():
-    url = f'{API_URL}link?father=/info/comunidades'
-    comunidades = requests.get(url).json()['data']
-
     message = f"Las comunidades IT son: \n\n"
-
+    with open('./assets/comunidades_it.json', encoding='utf-8') as f:
+        comunidades = json.load(f)
     for item in comunidades:
         message += f"<b><u>{item['title']}</u></b>: {item['url']}. \n"
     return message
