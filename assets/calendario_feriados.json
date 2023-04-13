@@ -11,11 +11,11 @@
         "mes": "Febrero",
         "feriados": [
             {
-                "dia": "15 de Febrero",
+                "dia": "20 de Febrero",
                 "motivo": "Carnaval"
             },
             {
-                "dia": "16 de Febrero",
+                "dia": "21 de Febrero",
                 "motivo": "Carnaval"
             }
         ]
@@ -35,6 +35,18 @@
             {
                 "dia": "02 de Abril",
                 "motivo": "Día del Veterano y de los Caídos en la Guerra de Malvinas"
+            },
+            {
+                "dia": "06 de Abril",
+                "motivo": "Semana Santa (Festividad Cristiana)"
+            },
+            {
+                "dia": "07 de Abril",
+                "motivo": "Semana Santa (Festividad Cristiana)"
+            },
+            {
+                "dia": "08 de Abril",
+                "motivo": "Semana Santa (Festividad Cristiana)"
             }
         ]
     },
@@ -48,6 +60,10 @@
             {
                 "dia": "25 de Mayo",
                 "motivo": "Día de la Revolución de Mayo"
+            },
+            {
+                "dia": "26 de Mayo",
+                "motivo": "Feriado con fines turísticos"
             }
         ]
     },
@@ -55,8 +71,12 @@
         "mes": "Junio",
         "feriados": [
             {
-                "dia": "16 de Junio",
+                "dia": "17 de Junio",
                 "motivo": "Día del Paso a la Inmortalidad del General Martín Miguel de Güemes"
+            },
+            {
+                "dia": "19 de Junio",
+                "motivo": "Feriado con fines turísticos"
             },
             {
                 "dia": "20 de Junio",
@@ -77,20 +97,29 @@
         "mes": "Agosto",
         "feriados": [
             {
-                "dia": "17 de Agosto",
+                "dia": "21 de Agosto",
                 "motivo": "Día del Paso a la Inmortalidad del Gral. José de San Martín"
             }
         ]
     },
     {
         "mes": "Septiembre",
-        "feriados": []
+        "feriados": [
+            {
+                "dia": "21 de Septiembre",
+                "motivo": "Día del Estudiante"
+            }
+        ]
     },
     {
         "mes": "Octubre",
         "feriados": [
             {
-                "dia": "12 de Octubre",
+                "dia": "13 de Octubre",
+                "motivo": "Feriado con fines turísticos"
+            },
+            {
+                "dia": "16 de Octubre",
                 "motivo": "Día del Respeto a la Diversidad Cultural"
             }
         ]
