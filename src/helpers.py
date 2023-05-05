@@ -1,10 +1,16 @@
 import requests
+import json
 import time
 import src.messages as responses
 
 
 def get_links_message():
-    return get_links_from_api()
+    message = f"Lista de Links: \n\n"
+    with open('./assets/links.json', encoding='utf-8') as f:
+        links = json.load(f)
+    for item in links:
+        message += f"<b><u>{item['title']}</u></b>: {item['url']}. \n"
+    return message
 
 
 def get_info(url):
@@ -37,11 +43,12 @@ def url_message(url, name):
 
 
 def url_correlatives(query):
-    res = requests.get(f'https://api-plan-de-estudios.herokuapp.com/course/correlatives?name={query}').json()
+    res = requests.get(
+        f'https://api-plan-de-estudios.herokuapp.com/course/correlatives?name={query}').json()
     if 'error' in res:
         return res['error']
     data = res['data']
-    
+
     if type(data) == str:
         return data
     else:
