@@ -1,6 +1,7 @@
 from src.setup import bot, logger
 from src.helpers import get_links_message, get_info, get_links_from_api, url_message, url_correlatives
 import src.messages as responses
+from command_urls import command_urls
 
 
 def welcome_new_user(message):
@@ -35,20 +36,21 @@ def get_useful_links(message):
 
 
 def request_url_information(message):
-    user_id = message.from_user.id
-    chat_id = message.chat.id
-    logger.info(
-        f"El usuario {user_id} ha solicitado información de {message.text}.")
-    if message.text == "/siu":
-        url = 'https://autogestion.uno.edu.ar/uno/'
-        name = "siu guarani"
-    elif message.text == "/campus":
-        url = 'http://campusvirtual.uno.edu.ar/moodle/'
-        name = 'campus'
+    try:
+        user_id = message.from_user.id
+        chat_id = message.chat.id
+        command = message.text
+        logger.info(f"El usuario {user_id} ha solicitado información de {command}.")
 
-    bot.send_message(
-        chat_id, f"<i>Solicitando información a {url} ...</i>")
-    bot.send_message(chat_id, url_message(url, name))
+        # Verifica si el comando existe en el diccionario command_urls
+        if command in command_urls:
+            url, name = command_urls[command]
+            bot.send_message(chat_id, f"<i>Solicitando información a {url} ...</i>")
+            bot.send_message(chat_id, url_message(url, name))
+        else:
+            bot.send_message(chat_id, "Comando no válido. Por favor, utiliza /siu o /campus.")
+    except Exception as e:
+        logger.error(f"Error en request_url_information: {e}")
 
 
 def get_comunidades_it(message):
