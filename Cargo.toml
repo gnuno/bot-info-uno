@@ -6,4 +6,8 @@ publish = false
 
 [dependencies]
 shuttle-runtime = "0.36.0"
+shuttle-secrets = "0.36.0"
+teloxide = { version = "0.12.2", features = ["teloxide-macros", "macros"] }
+thiserror = "1.0.56"
 tokio = "1"
+tracing = { version = "0.1.40", features = ["log"] }

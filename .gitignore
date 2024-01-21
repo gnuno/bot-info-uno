@@ -1,4 +1,4 @@
 /target
 .shuttle-storage
 Secrets*.toml
-Shuttle.dev.toml
+!Secrets.dev.toml

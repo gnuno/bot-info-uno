@@ -1,16 +1,19 @@
+use bot::BotService;
+use shuttle_secrets::SecretStore;
+use teloxide::prelude::*;
+
+pub mod bot;
+pub mod command;
+
 #[shuttle_runtime::main]
-async fn shuttle_main() -> Result<MyService, shuttle_runtime::Error> {
-    Ok(MyService {})
-}
+async fn shuttle_main(
+    #[shuttle_secrets::Secrets] secrets: SecretStore,
+) -> Result<BotService, shuttle_runtime::Error> {
+    let telegram_token = secrets
+        .get("TELEGRAM_TOKEN")
+        .expect("TELEGRAM_TOKEN needs to be set.");
 
-// Customize this struct with things from `shuttle_main` needed in `bind`,
-// such as secrets or database connections
-struct MyService {}
-
-#[shuttle_runtime::async_trait]
-impl shuttle_runtime::Service for MyService {
-    async fn bind(self, _addr: std::net::SocketAddr) -> Result<(), shuttle_runtime::Error> {
-        // Start your service and bind to the socket address
-        Ok(())
-    }
+    Ok(BotService {
+        bot: Bot::new(telegram_token),
+    })
 }
