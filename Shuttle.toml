@@ -1,0 +1,4 @@
+# Declare ignored files that should be included in deployment:
+assets = [
+  "assets/*", # include all files and subdirs in static/
+]

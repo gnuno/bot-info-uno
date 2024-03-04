@@ -5,6 +5,10 @@ use teloxide::prelude::*;
 pub mod bot;
 pub mod command;
 
+pub mod hooks;
+pub mod commands;
+pub mod models;
+
 #[shuttle_runtime::main]
 async fn shuttle_main(
     #[shuttle_secrets::Secrets] secrets: SecretStore,

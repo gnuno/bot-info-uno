@@ -2,7 +2,7 @@ use std::sync::Arc;
 
 use teloxide::{prelude::*, types::Me, utils::command::BotCommands};
 
-use crate::bot::InstanceState;
+use crate::{bot::InstanceState, commands::{hacer_algo::hacer_algo, links_utiles::links_utiles}};
 
 /// Enumeration of commands accepted by the bot.
 #[derive(BotCommands, Clone)]
@@ -16,6 +16,10 @@ Estos son los siguientes comandos:"
 pub enum Command {
     #[command(description = "Muestra este texto. Uso: /help")]
     Help,
+    #[command(description = "Hace algo")]
+    HacerAlgo,
+    #[command(description = "Devuelve una lista de links")]
+    Links,
 }
 
 impl Command {
@@ -31,7 +35,9 @@ impl Command {
             Command::Help => {
                 bot.send_message(msg.chat.id, Command::descriptions().to_string())
                     .await?;
-            }
+            },
+            Command::HacerAlgo => hacer_algo(&msg, &bot).await?,
+            Command::Links => links_utiles(&msg, &bot).await?
         }
 
         Ok(())

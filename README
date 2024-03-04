@@ -14,12 +14,16 @@ en Windows
 ```
 Set-ExecutionPolicy Unrestricted -Scope Process; iex (iwr "https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-release.ps1").Content
 ```
-Y luego
+
+Agregar tu Token de [@botfather](https://telegram.me/BotFather) en el `Secrets.dev.toml`
+
+Y luego 
+
 ```
 cargo binstall cargo-shuttle
 cargo shuttle run
-
 ```
+
 
 
 <table><tr><td>
