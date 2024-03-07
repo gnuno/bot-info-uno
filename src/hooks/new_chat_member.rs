@@ -1,9 +1,11 @@
-use teloxide::{Bot, types::ChatMemberUpdated, requests::{ResponseResult, Requester}, utils::html};
+use teloxide::{Bot, types::ChatMemberUpdated, requests::Requester, utils::html};
+
+use crate::errors::BotErrors;
 
 
 
 /// Welcome Endpoint
-pub async fn new_chat_member(bot: Bot, chat_member: ChatMemberUpdated) -> ResponseResult<()> {
+pub async fn new_chat_member(bot: Bot, chat_member: ChatMemberUpdated) -> Result<(), BotErrors> {
     let user = chat_member.old_chat_member.user.clone();
 
     let telegram_group_name = chat_member.chat.title().unwrap_or("");

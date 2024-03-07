@@ -1,8 +1,8 @@
 use std::sync::Arc;
 
-use crate::{command::Command, hooks::{left_chat_member::left_chat_member, new_chat_member::new_chat_member}};
+use crate::{command::Command, errors::BotErrors, hooks::{left_chat_member::left_chat_member, new_chat_member::new_chat_member}};
 use shuttle_runtime::Service;
-use teloxide::{dispatching::UpdateFilterExt, prelude::*, RequestError};
+use teloxide::{dispatching::UpdateFilterExt, prelude::*};
 use tracing::log::debug;
 
 pub struct BotService {
@@ -30,7 +30,7 @@ async fn unhandled_update(upd: Arc<Update>) {
     debug!("unhandled update: {upd:?}");
 }
 
-async fn error_log(err: RequestError) {
+async fn error_log(err: BotErrors) {
     tracing::error!("dispatcher error: {err}")
 }
 
