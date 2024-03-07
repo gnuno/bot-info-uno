@@ -1,14 +1,14 @@
 use std::fs::read_to_string;
 
-use teloxide::{requests::{Requester, ResponseResult}, types::Message, utils::html::escape, Bot, RequestError};
+use teloxide::{requests::Requester, types::Message, utils::html::escape, Bot};
 
-use crate::models::mails_de_escuelas::Escuela;
+use crate::models::{errors::BotErrors, mails_de_escuelas::Escuela};
 use std::fmt::Write;
 
-pub async fn get_mails_de_escuela(msg: &Message, bot: &Bot, nombre_de_escuela: String) -> ResponseResult<()> {
+pub async fn get_mails_de_escuela(msg: &Message, bot: &Bot, nombre_de_escuela: String) -> Result<(), BotErrors> {
     bot.send_message(msg.chat.id, "Acá tenes los mails").await?;
     let content = read_to_string("assets/mails_escuelas.json")?;
-    let escuelas: Vec<Escuela> = serde_json::from_str(&content).map_err(|e|RequestError::InvalidJson { source: e, raw: content.into_boxed_str() })?;
+    let escuelas: Vec<Escuela> = serde_json::from_str(&content)?;
 
     if nombre_de_escuela.is_empty() {
         let mut message = "Estos son los mails que tenemos:\n".to_string();

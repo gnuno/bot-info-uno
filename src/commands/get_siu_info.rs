@@ -1,6 +1,6 @@
 use std::time::Instant;
 
-use teloxide::{payloads::SendMessageSetters, requests::Requester, types::ParseMode::MarkdownV2, types::Message, Bot};
+use teloxide::{requests::Requester, types::Message, Bot};
 
 use crate::models::errors::BotErrors;
 
@@ -8,7 +8,7 @@ pub async fn get_siu_info(msg: &Message, bot: &Bot) -> Result<(), BotErrors> {
     let t0 = Instant::now();
     
     let Ok(response) = reqwest::get("https://autogestion.uno.edu.ar/uno/").await else {
-            bot.send_message(msg.chat.id, "Fallo obteniendo respuesta del SIU").parse_mode(MarkdownV2).await?;
+            bot.send_message(msg.chat.id, "Fallo obteniendo respuesta del SIU").await?;
             return Err(BotErrors::FailureDoingPing)
     };
 
@@ -18,7 +18,7 @@ pub async fn get_siu_info(msg: &Message, bot: &Bot) -> Result<(), BotErrors> {
 
     if status == 200 {
         let message = format!("SIU: Latencia: {} ms", latency);
-        bot.send_message(msg.chat.id, message).parse_mode(MarkdownV2).await?;
+        bot.send_message(msg.chat.id, message).await?;
     }
     Ok(())
 }

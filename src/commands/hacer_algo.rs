@@ -1,7 +1,9 @@
-use teloxide::{requests::{Requester, ResponseResult}, types::Message, Bot};
+use teloxide::{requests::Requester, types::Message, Bot};
+
+use crate::models::errors::BotErrors;
 
 
-pub async fn hacer_algo(msg: &Message, bot: &Bot) -> ResponseResult<()> {
+pub async fn hacer_algo(msg: &Message, bot: &Bot) -> Result<(), BotErrors> {
     bot.send_message(msg.chat.id, "Hola mundo").await?;
     println!("Hola mundo");
 

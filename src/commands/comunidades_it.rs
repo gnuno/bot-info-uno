@@ -1,14 +1,14 @@
-use teloxide::{payloads::SendMessageSetters, requests::{Requester, ResponseResult}, types::Message, utils::markdown::escape, Bot, RequestError};
+use teloxide::{payloads::SendMessageSetters, requests::Requester, types::Message, utils::markdown::escape, Bot};
 use teloxide::types::ParseMode::MarkdownV2;
 
-use crate::models::link::Link;
+use crate::models::{errors::BotErrors, link::Link};
 use std::{fmt::Write, fs::read_to_string};
 
 
-pub async fn comunidades_it(msg: &Message, bot: &Bot) -> ResponseResult<()> {
+pub async fn comunidades_it(msg: &Message, bot: &Bot) -> Result<(), BotErrors> {
 
     let content = read_to_string("assets/comunidades_it.json")?;
-    let links: Vec<Link> = serde_json::from_str(&content).map_err(|e|RequestError::InvalidJson { source: e, raw: content.into_boxed_str() })?;
+    let links: Vec<Link> = serde_json::from_str(&content)?;
 
     let mut message = "Estos son los links que tenemos:\n".to_string();
 
