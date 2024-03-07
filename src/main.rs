@@ -5,7 +5,6 @@ use teloxide::prelude::*;
 pub mod bot;
 pub mod command;
 
-pub mod errors;
 pub mod hooks;
 pub mod commands;
 pub mod models;

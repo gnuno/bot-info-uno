@@ -1,6 +1,6 @@
 use teloxide::{Bot, types::ChatMemberUpdated, requests::Requester, utils::html};
 
-use crate::errors::BotErrors;
+use crate::models::errors::BotErrors;
 
 
 

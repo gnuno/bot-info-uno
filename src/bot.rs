@@ -1,6 +1,6 @@
 use std::sync::Arc;
 
-use crate::{command::Command, errors::BotErrors, hooks::{left_chat_member::left_chat_member, new_chat_member::new_chat_member}};
+use crate::{command::Command, models::errors::BotErrors, hooks::{left_chat_member::left_chat_member, new_chat_member::new_chat_member}};
 use shuttle_runtime::Service;
 use teloxide::{dispatching::UpdateFilterExt, prelude::*};
 use tracing::log::debug;

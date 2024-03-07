@@ -2,7 +2,7 @@ use std::sync::Arc;
 
 use teloxide::{prelude::*, types::Me, utils::command::BotCommands};
 
-use crate::{bot::InstanceState, commands::{calendario_academico::calendario_academico, get_siu_info::get_siu_info, hacer_algo::hacer_algo, links_utiles::links_utiles}, errors::BotErrors};
+use crate::{bot::InstanceState, commands::{calendario_academico::calendario_academico, get_siu_info::get_siu_info, hacer_algo::hacer_algo, links_utiles::links_utiles}, models::errors::BotErrors};
 
 /// Enumeration of commands accepted by the bot.
 #[derive(BotCommands, Clone)]

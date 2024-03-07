@@ -2,7 +2,7 @@ use std::time::Instant;
 
 use teloxide::{payloads::SendMessageSetters, requests::Requester, types::ParseMode::MarkdownV2, types::Message, Bot};
 
-use crate::errors::BotErrors;
+use crate::models::errors::BotErrors;
 
 pub async fn get_siu_info(msg: &Message, bot: &Bot) -> Result<(), BotErrors> {
     let t0 = Instant::now();

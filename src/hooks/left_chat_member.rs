@@ -1,6 +1,6 @@
 use teloxide::{Bot, types::ChatMemberUpdated, requests::Requester, utils::html};
 
-use crate::errors::BotErrors;
+use crate::models::errors::BotErrors;
 
 
 pub async fn left_chat_member(bot: Bot, chat_member: ChatMemberUpdated) -> Result<(), BotErrors> {
