@@ -2,7 +2,7 @@ use std::sync::Arc;
 
 use teloxide::{prelude::*, types::Me, utils::command::BotCommands};
 
-use crate::{bot::InstanceState, commands::{calendario_academico::calendario_academico, get_siu_info::get_siu_info, hacer_algo::hacer_algo, links_utiles::links_utiles}, models::errors::BotErrors};
+use crate::{bot::InstanceState, commands::{calendario_academico::calendario_academico, comunidades_it::comunidades_it, get_siu_info::get_siu_info, hacer_algo::hacer_algo, links_utiles::links_utiles}, models::errors::BotErrors};
 
 /// Enumeration of commands accepted by the bot.
 #[derive(BotCommands, Clone)]
@@ -20,6 +20,8 @@ pub enum Command {
     HacerAlgo,
     #[command(description = "Devuelve una lista de links")]
     Links,
+    #[command(description = "Lista las comunidades IT que tenemos")]
+    ComunidadesIT,
     #[command(description = "Muestra el calendario académico")]
     CalendarioAcademico,
     #[command(description = "Obtener estado del SIU")]
@@ -44,7 +46,8 @@ impl Command {
             Command::HacerAlgo => hacer_algo(&msg, &bot).await?,
             Command::Links => links_utiles(&msg, &bot).await?,
             Command::CalendarioAcademico => calendario_academico(&msg, &bot).await?,
-            Command::SIU => get_siu_info(&msg, &bot).await?
+            Command::SIU => get_siu_info(&msg, &bot).await?,
+            Command::ComunidadesIT => comunidades_it(&msg, &bot).await?
         }
 
         Ok(())
