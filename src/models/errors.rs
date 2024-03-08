@@ -3,19 +3,19 @@ use thiserror::Error;
 
 #[derive(Error, Debug)]
 pub enum BotErrors {
-    #[error(transparent)]
+    #[error("Ha habido un problema de comunicación con Telegram")]
     TeloxideErrors(#[from] teloxide::RequestError),
 
-    #[error(transparent)]
+    #[error("No se ha podido obtener el archivo correspondiente")]
     IOError(#[from] std::io::Error),
 
-    #[error(transparent)]
+    #[error("Hubo un problema transformando un JSON")]
     Serde(#[from] serde_json::Error),
 
-    #[error(transparent)]
+    #[error("Ocurrio un error formateando")]
     Format(#[from] std::fmt::Error),
 
-    #[error("ocurrio un error haciendo ping")]
+    #[error("Ocurrio un error haciendo ping")]
     FailureDoingPing,
 
     #[error("No existe la escuela con el nombre `{0}`")]

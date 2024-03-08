@@ -1,6 +1,7 @@
-use std::sync::Arc;
+use std::{error::Error, sync::Arc};
 
 use teloxide::{prelude::*, types::Me, utils::command::BotCommands};
+use tracing::error;
 
 use crate::{bot::InstanceState, commands::{calendario_academico::calendario_academico, comunidades_it::comunidades_it, get_siu_info::get_siu_info, hacer_algo::hacer_algo, links_utiles::links_utiles, mails_de_escuela::get_mails_de_escuela}, models::errors::BotErrors};
 
@@ -39,19 +40,27 @@ impl Command {
         msg: Message,
         cmd: Command,
     ) -> Result<(), BotErrors> {
-        match cmd {
-            Command::Help => {
-                bot.send_message(msg.chat.id, Command::descriptions().to_string())
-                    .await?;
-            },
-            Command::HacerAlgo => hacer_algo(&msg, &bot).await?,
-            Command::Links => links_utiles(&msg, &bot).await?,
-            Command::CalendarioAcademico => calendario_academico(&msg, &bot).await?,
-            Command::SIU => get_siu_info(&msg, &bot).await?,
-            Command::ComunidadesIT => comunidades_it(&msg, &bot).await?,
-            Command::MailDeEscuela(escuela) => get_mails_de_escuela(&msg, &bot, escuela).await?
+        
+        let response = match cmd {
+            Command::Help => help(&msg, &bot).await,
+            Command::HacerAlgo => hacer_algo(&msg, &bot).await,
+            Command::Links => links_utiles(&msg, &bot).await,
+            Command::CalendarioAcademico => calendario_academico(&msg, &bot).await,
+            Command::SIU => get_siu_info(&msg, &bot).await,
+            Command::ComunidadesIT => comunidades_it(&msg, &bot).await,
+            Command::MailDeEscuela(escuela) => get_mails_de_escuela(&msg, &bot, escuela).await
+        };
+
+        if let Err(error) = response {
+            error!("Ha ocurrido un error: {:?}", error.source());
+            bot.send_message(msg.chat.id, error.to_string()).await?;
         }
 
         Ok(())
     }
+}
+
+async fn help(msg: &Message, bot: &Bot) -> Result<(), BotErrors> {
+    bot.send_message(msg.chat.id, Command::descriptions().to_string()).await?;
+    Ok(())
 }
