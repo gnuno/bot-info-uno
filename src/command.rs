@@ -3,7 +3,7 @@ use std::{error::Error, sync::Arc};
 use teloxide::{prelude::*, types::Me, utils::command::BotCommands};
 use tracing::error;
 
-use crate::{bot::InstanceState, commands::{calendario_academico::calendario_academico, comunidades_it::comunidades_it, get_siu_info::get_siu_info, hacer_algo::hacer_algo, links_utiles::links_utiles, mails_de_escuela::get_mails_de_escuela}, models::errors::BotErrors};
+use crate::{bot::InstanceState, commands::{calendario_academico::calendario_academico, comunidades_it::comunidades_it, get_siu_info::get_siu_info, hacer_algo::hacer_algo, links_utiles::links_utiles, mails_de_escuela::get_mails_de_escuela, roadmap::roadmap}, models::errors::BotErrors};
 
 /// Enumeration of commands accepted by the bot.
 #[derive(BotCommands, Clone)]
@@ -19,6 +19,8 @@ pub enum Command {
     Help,
     #[command(description = "Hace algo")]
     HacerAlgo,
+    #[command(description = "Muestra el link de la imagen del roadmap de la carrera")]
+    Roadmap,
     #[command(description = "Devuelve una lista de links")]
     Links,
     #[command(description = "Lista las comunidades IT que tenemos")]
@@ -44,6 +46,7 @@ impl Command {
         let response = match cmd {
             Command::Help => help(&msg, &bot).await,
             Command::HacerAlgo => hacer_algo(&msg, &bot).await,
+            Command::Roadmap => roadmap(&msg, &bot).await,
             Command::Links => links_utiles(&msg, &bot).await,
             Command::CalendarioAcademico => calendario_academico(&msg, &bot).await,
             Command::SIU => get_siu_info(&msg, &bot).await,
