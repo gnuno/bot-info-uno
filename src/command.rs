@@ -3,7 +3,7 @@ use std::{error::Error, sync::Arc};
 use teloxide::{prelude::*, types::Me, utils::command::BotCommands};
 use tracing::error;
 
-use crate::{bot::InstanceState, commands::{calendario_academico::calendario_academico, comunidades_it::comunidades_it, get_siu_info::get_siu_info, hacer_algo::hacer_algo, links_utiles::links_utiles, mails_de_escuela::get_mails_de_escuela, roadmap::roadmap}, models::errors::BotErrors};
+use crate::{bot::InstanceState, commands::{calendario_academico::calendario_academico, comunidades_it::comunidades_it, get_siu_info::get_siu_info, hacer_algo::hacer_algo, links_utiles::links_utiles, mails_de_escuela::get_mails_de_escuela, roadmap::roadmap, sedes::sedes}, models::errors::BotErrors};
 
 /// Enumeration of commands accepted by the bot.
 #[derive(BotCommands, Clone)]
@@ -31,6 +31,8 @@ pub enum Command {
     SIU,
     #[command(description = "Obtener mails de Escuela")]
     MailDeEscuela(String),
+    #[command(description = "Da una lista de las sedes con sus datos")]
+    Sedes
 }
 
 impl Command {
@@ -51,7 +53,8 @@ impl Command {
             Command::CalendarioAcademico => calendario_academico(&msg, &bot).await,
             Command::SIU => get_siu_info(&msg, &bot).await,
             Command::ComunidadesIT => comunidades_it(&msg, &bot).await,
-            Command::MailDeEscuela(escuela) => get_mails_de_escuela(&msg, &bot, escuela).await
+            Command::MailDeEscuela(escuela) => get_mails_de_escuela(&msg, &bot, escuela).await,
+            Command::Sedes => sedes(&msg, &bot).await
         };
 
         if let Err(error) = response {

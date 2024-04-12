@@ -5,3 +5,4 @@ pub mod get_siu_info;
 pub mod comunidades_it;
 pub mod mails_de_escuela;
 pub mod roadmap;
+pub mod sedes;
