@@ -15,7 +15,7 @@ Para reportar bugs, escribelos aquí: https://github.com/gnuno/bot-info-uno/issu
 Estos son los siguientes comandos:"
 )]
 pub enum Command {
-    #[command(description = "Muestra este texto. Uso: /help")]
+    #[command(alias="ayuda", description = "Muestra este texto.")]
     Help,
     #[command(description = "Hace algo")]
     HacerAlgo,
@@ -25,7 +25,7 @@ pub enum Command {
     Links,
     #[command(description = "Lista las comunidades IT que tenemos")]
     ComunidadesIT,
-    #[command(description = "Muestra el calendario académico")]
+    #[command(aliases = ["calendario", "fechas"], description = "Muestra el calendario académico")]
     CalendarioAcademico,
     #[command(description = "Obtener estado del SIU")]
     SIU,

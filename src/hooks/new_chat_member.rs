@@ -15,7 +15,7 @@ pub async fn new_chat_member(bot: Bot, chat_member: ChatMemberUpdated) -> Result
     // text linking to the user
     let username = user
         .mention()
-        .unwrap_or_else(|| html::user_mention(user.id.0 as i64, user.full_name().as_str()));
+        .unwrap_or_else(|| html::user_mention(user.id, user.full_name().as_str()));
 
     bot.send_message(chat_member.chat.id, format!("Bienvenidx a {telegram_group_name}, un lugar horrible pero bueno, pasala bien {username}!"))
         .await?;
