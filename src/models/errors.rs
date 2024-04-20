@@ -3,6 +3,9 @@ use thiserror::Error;
 
 #[derive(Error, Debug)]
 pub enum BotErrors {
+    #[error("Deberías de enviar un mensaje al privado seguido de una acción: /me hizo algo")]
+    MeCommandBadUsed,
+
     #[error("Ha habido un problema de comunicación con Telegram")]
     TeloxideErrors(#[from] teloxide::RequestError),
 
