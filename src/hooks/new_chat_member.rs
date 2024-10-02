@@ -1,8 +1,8 @@
-use teloxide::{Bot, types::ChatMemberUpdated, requests::Requester, utils::html};
-
 use crate::models::errors::BotErrors;
-
-
+use teloxide::types::ParseMode::Html;
+use teloxide::{
+    payloads::SendMessageSetters, requests::Requester, types::ChatMemberUpdated, utils::html, Bot,
+};
 
 /// Welcome Endpoint
 pub async fn new_chat_member(bot: Bot, chat_member: ChatMemberUpdated) -> Result<(), BotErrors> {
@@ -18,8 +18,8 @@ pub async fn new_chat_member(bot: Bot, chat_member: ChatMemberUpdated) -> Result
         .unwrap_or_else(|| html::user_mention(user.id, user.full_name().as_str()));
 
     bot.send_message(chat_member.chat.id, format!("Bienvenidx a {telegram_group_name}, un lugar horrible pero bueno, pasala bien {username}!"))
+        .parse_mode(Html)
         .await?;
 
     Ok(())
 }
-
