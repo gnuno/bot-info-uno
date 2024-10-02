@@ -1,17 +1,17 @@
 use bot::BotService;
-use shuttle_secrets::SecretStore;
+use shuttle_runtime::SecretStore;
 use teloxide::prelude::*;
 
 pub mod bot;
 pub mod command;
 
-pub mod hooks;
 pub mod commands;
+pub mod hooks;
 pub mod models;
 
 #[shuttle_runtime::main]
 async fn shuttle_main(
-    #[shuttle_secrets::Secrets] secrets: SecretStore,
+    #[shuttle_runtime::Secrets] secrets: SecretStore,
 ) -> Result<BotService, shuttle_runtime::Error> {
     let telegram_token = secrets
         .get("TELEGRAM_TOKEN")
